@@ -1,16 +1,35 @@
 {
   "name": "Daily OS – Selfcare",
-  "short_name": "Daily OS",
-  "start_url": "./selfcare-app.html",
+  "short_name": "Selfcare",
+  "description": "Persönliches Selfcare- & Gewohnheits-Tracking",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#101613",
   "theme_color": "#101613",
+  "lang": "de",
   "icons": [
+    { "src": "selfcare-icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "selfcare-icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ],
+  "shortcuts": [
     {
-      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23101613'/%3E%3Ccircle cx='50' cy='50' r='32' fill='none' stroke='%239BC4A0' stroke-width='8'/%3E%3Ccircle cx='50' cy='50' r='12' fill='%23D9A05B'/%3E%3C/svg%3E",
-      "sizes": "512x512",
-      "type": "image/svg+xml",
-      "purpose": "any maskable"
+      "name": "Wasser +250 ml",
+      "short_name": "Wasser",
+      "url": "./?action=water250",
+      "icons": [{ "src": "selfcare-sc-water.png", "sizes": "96x96", "type": "image/png" }]
+    },
+    {
+      "name": "Meditation starten",
+      "short_name": "Meditation",
+      "url": "./?action=med",
+      "icons": [{ "src": "selfcare-sc-med.png", "sizes": "96x96", "type": "image/png" }]
+    },
+    {
+      "name": "Lese-Timer starten",
+      "short_name": "Lesen",
+      "url": "./?action=read",
+      "icons": [{ "src": "selfcare-sc-read.png", "sizes": "96x96", "type": "image/png" }]
     }
   ]
 }
