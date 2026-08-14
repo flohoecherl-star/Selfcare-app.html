@@ -338,6 +338,63 @@ canvas.chart{width:100%;height:170px;display:block}
 .tmplgrid .tp.has{border-style:solid;border-color:var(--sage-deep);color:var(--muted)}
 .altline{font-size:12px;color:var(--sage);margin-top:5px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* ===== Ernährung: Datenbank, Suche, Mahlzeiten ===== */
+.macrogrid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:12px}
+.macrogrid .mg{background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:9px 8px;text-align:center}
+.macrogrid .mg .v{font-family:var(--disp);font-size:18px;line-height:1.1}
+.macrogrid .mg .l{font-size:10.5px;color:var(--muted);margin-top:2px;letter-spacing:.3px}
+.macrogrid .mg .mb{height:4px;background:var(--bg);border-radius:99px;margin-top:6px;overflow:hidden}
+.macrogrid .mg .mb i{display:block;height:100%;background:var(--sage);border-radius:99px}
+.macrogrid .mg.kcal .mb i{background:var(--amber)}
+.macrogrid .mg.carb .mb i{background:var(--blue)}
+.macrogrid .mg.fat .mb i{background:#c9a87f}
+.macrogrid .mg.over .v{color:var(--amber)}
+.fsearch{position:relative;margin-bottom:8px}
+.fsearch input{padding-right:38px}
+.fsearch .clr{position:absolute;right:8px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--muted);font-size:17px;width:26px}
+.fresults{margin-top:6px;max-height:340px;overflow-y:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:12px;background:var(--surface2);display:none}
+.fresults.show{display:block}
+.fresults .fr{display:flex;align-items:center;gap:9px;padding:9px 11px;border-bottom:1px solid var(--line);cursor:pointer}
+.fresults .fr:last-child{border-bottom:none}
+.fresults .fr:active{background:var(--surface)}
+.fresults .fr .nm{flex:1;font-size:13.5px;line-height:1.3}
+.fresults .fr .nm i{display:block;font-style:normal;font-size:11px;color:var(--muted);margin-top:1px}
+.fresults .fr .pp{font-size:12px;color:var(--sage);font-weight:600;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.fresults .fr .pp span{display:block;color:var(--muted);font-weight:400;font-size:10.5px}
+.fresults .fr .go{background:var(--surface);border:1px solid var(--line);color:var(--muted);width:30px;height:30px;border-radius:9px;font-size:14px;flex:0 0 auto}
+.fresults .fcat{padding:6px 11px;font-size:10.5px;letter-spacing:.6px;text-transform:uppercase;color:var(--muted);background:var(--surface);border-bottom:1px solid var(--line)}
+.mealtabs{display:flex;gap:5px;overflow-x:auto;scrollbar-width:none;margin:2px 0 8px}
+.mealtabs::-webkit-scrollbar{display:none}
+.mealtabs button{flex:0 0 auto;background:var(--surface2);border:1px solid var(--line);color:var(--muted);font-size:12.5px;padding:7px 12px;border-radius:99px}
+.mealtabs button.sel{border-color:var(--sage-deep);color:var(--sage);background:#1c2a22}
+.mealtabs button i{font-style:normal;color:var(--muted);font-size:11px;margin-left:4px}
+.mealhead{display:flex;align-items:center;gap:8px;margin:12px 0 2px;font-size:11.5px;letter-spacing:.5px;text-transform:uppercase;color:var(--muted)}
+.mealhead .ln{flex:1;height:1px;background:var(--line)}
+.mealhead .kc{text-transform:none;letter-spacing:0;color:var(--sage);font-weight:600}
+.portrow{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.portrow button{background:var(--surface2);border:1px solid var(--line);color:var(--text);font-size:13px;padding:8px 13px;border-radius:99px}
+.portrow button.sel{border-color:var(--sage);color:var(--sage);background:#1c2a22}
+.macroprev{background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-top:10px;display:flex;justify-content:space-between;font-size:12.5px;color:var(--muted)}
+.macroprev b{display:block;color:var(--text);font-family:var(--disp);font-size:16px;font-weight:600}
+.macroprev div{text-align:center}
+/* ===== Blase / Miktion ===== */
+.peebtn{width:100%;padding:15px;font-size:16px}
+.peegrid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin:12px 0 4px}
+.peegrid .pg{background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:9px 6px;text-align:center}
+.peegrid .pg .v{font-family:var(--disp);font-size:19px;line-height:1.1}
+.peegrid .pg .l{font-size:10.5px;color:var(--muted);margin-top:2px}
+.peegrid .pg.warn .v{color:var(--amber)}
+.peetl{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
+.peetl .pt{background:var(--surface2);border:1px solid var(--line);border-radius:9px;padding:5px 9px;font-size:12px;color:var(--text);font-variant-numeric:tabular-nums;cursor:pointer;display:flex;align-items:center;gap:5px}
+.peetl .pt.night{border-color:#3d4f6b;color:var(--blue)}
+.peetl .pt b{font-weight:600;font-size:11px;color:var(--muted)}
+.colorrow{display:flex;gap:6px;margin:6px 0}
+.colorrow button{flex:1;height:38px;border-radius:10px;border:2px solid transparent;font-size:11px;color:#2a2418;font-weight:700}
+.colorrow button.sel{border-color:var(--text)}
+.assessbox{border:1px solid var(--line);border-left:3px solid var(--sage-deep);background:var(--surface2);border-radius:10px;padding:10px 12px;margin-top:10px;font-size:12.5px;color:var(--muted);line-height:1.55}
+.assessbox.warn{border-left-color:var(--amber)}
+.assessbox b{color:var(--text)}
 </style>
 </head>
 <body>
@@ -476,27 +533,48 @@ canvas.chart{width:100%;height:170px;display:block}
 
   <div class="card" id="card-nutrition">
     <h2><span class="dot"></span>Ernährung <span class="done-flag" id="flag-nutrition"></span></h2>
-    <div class="barlabel"><span>💧 Wasser</span><span id="waterLabel"></span></div>
-    <div class="bar"><i class="water" id="waterBar" style="width:0%"></i></div>
-    <div class="remain" id="waterRemain"></div>
-    <div class="foodchips">
-      <span class="fc water" onclick="addWater(250,'Glas')">Glas <b>250</b></span>
-      <span class="fc water" onclick="addWater(500,'Flasche')">Flasche <b>500</b></span>
-      <span class="fc water" onclick="addWater(750,'Große Flasche')">Groß <b>750</b></span>
-      <span class="fc water" onclick="quickAsk('water')">ml eingeben</span>
-    </div>
-
-    <div class="barlabel" style="margin-top:16px"><span>🥩 Protein</span><span id="proteinLabel"></span></div>
-    <div class="bar"><i id="proteinBar" style="width:0%"></i></div>
+    <div class="macrogrid" id="macroGrid"></div>
     <div class="remain" id="proteinRemain"></div>
+
+    <div class="fsearch">
+      <input id="foodSearch" placeholder="🔍 Lebensmittel suchen …" autocomplete="off" oninput="renderFoodSearch()" onfocus="renderFoodSearch()">
+      <button class="clr" onclick="clearFoodSearch()">✕</button>
+    </div>
+    <div class="fresults" id="foodResults"></div>
+
+    <div class="mealtabs" id="mealTabs"></div>
     <div class="foodchips" id="foodChips"></div>
 
     <div class="intake" id="intakeList"></div>
     <div class="row" style="margin-top:10px">
       <button class="btn ghost small" onclick="copyIntakeYesterday()">↺ Wie gestern</button>
-      <button class="btn ghost small" onclick="quickAsk('protein')">g eingeben</button>
+      <button class="btn ghost small" onclick="openMealTemplates()">📋 Vorlagen</button>
+      <button class="btn ghost small" onclick="newFoodQuick('')">＋ Neu</button>
     </div>
-    <div class="hint">Portionen tippen statt rechnen. Die Liste unten zeigt alles von heute – ✕ nimmt einen Eintrag samt Menge wieder zurück. Eigene Portionen legst du unter Setup → Portionen an.</div>
+
+    <div class="barlabel" style="margin-top:18px"><span>💧 Wasser</span><span id="waterLabel"></span></div>
+    <div class="bar"><i class="water" id="waterBar" style="width:0%"></i></div>
+    <div class="remain" id="waterRemain"></div>
+    <div class="foodchips">
+      <span class="fc water" onclick="addWater(250,'Glas Wasser')">Glas <b>250</b></span>
+      <span class="fc water" onclick="addWater(500,'Flasche Wasser')">Flasche <b>500</b></span>
+      <span class="fc water" onclick="addWater(750,'Große Flasche Wasser')">Groß <b>750</b></span>
+      <span class="fc water" onclick="quickAsk('water')">ml eingeben</span>
+    </div>
+    <div class="hint">Suchen, Portion antippen, fertig. Häufig genutzte Sachen stehen als Chips oben – ein Tipp trägt die Standardportion ein, langes Antippen von <b>⋯</b> öffnet die Mengenauswahl. Eigene Lebensmittel und Portionen pflegst du unter Setup → Lebensmittel.</div>
+  </div>
+
+  <div class="card" id="card-urin">
+    <h2><span class="dot" style="background:var(--blue)"></span>Blase &amp; Toilette <span class="done-flag" id="flag-urin"></span></h2>
+    <button class="btn primary peebtn" onclick="logPee()">🚻 Toilettengang eintragen</button>
+    <div class="row" style="margin-top:8px">
+      <button class="btn ghost small" onclick="logPee(1)">＋ mit Details</button>
+      <button class="btn ghost small" onclick="peeReport()">📄 Protokoll</button>
+    </div>
+    <div class="peegrid" id="peeStats"></div>
+    <div class="peetl" id="peeList"></div>
+    <div id="peeAssess"></div>
+    <div class="hint">Ein Tipp pro Toilettengang – mehr braucht es nicht. Details (Menge, Farbe, Drang) sind optional und nur dann sinnvoll, wenn du das Protokoll beim Arzt vorlegen willst. Nachts zählt alles zwischen 23 und 6 Uhr.</div>
   </div>
 
   <div class="card" id="card-read">
@@ -887,15 +965,15 @@ canvas.chart{width:100%;height:170px;display:block}
   </div>
 
   <div class="card" id="card-foods">
-    <h2><span class="dot"></span>Portionen (Protein & Wasser)</h2>
-    <div class="setlist" id="setFoods"></div>
-    <input id="newFoodName" placeholder="Name, z. B. Skyr 500 g" style="margin-top:8px">
-    <div class="row" style="margin-top:8px">
-      <input type="number" inputmode="numeric" id="newFoodP" placeholder="g Protein" class="shrink">
-      <input type="number" inputmode="numeric" id="newFoodMl" placeholder="ml (optional)" class="shrink">
-      <button class="btn shrink small" onclick="addFoodPreset()">+</button>
+    <h2><span class="dot"></span>Lebensmittel-Datenbank</h2>
+    <div id="fdbInfo" class="hint" style="margin-top:0"></div>
+    <input id="fdbFilter" placeholder="🔍 In der Datenbank suchen …" style="margin-top:8px" oninput="renderFdbSettings()">
+    <div class="setlist" id="setFoods" style="max-height:420px;overflow-y:auto"></div>
+    <div class="row" style="margin-top:10px">
+      <button class="btn ghost small" onclick="newFoodQuick('')">＋ Lebensmittel anlegen</button>
+      <button class="btn ghost small" onclick="restoreFdb()">↺ Standarddatenbank ergänzen</button>
     </div>
-    <div class="hint">Deine Standardportionen – ein Tipp in der Heute-Ansicht trägt sie ein, ohne dass du rechnen musst. Ein Proteinshake mit 300 ml zählt gleichzeitig aufs Wasserziel.</div>
+    <div class="hint">Alle Werte beziehen sich auf 100 g, 100 ml oder ein Stück. Eintrag antippen zum Bearbeiten – dort legst du auch eigene Portionsgrößen an (z. B. „Becher 500 g"), die dann in der Heute-Ansicht als Knopf erscheinen. ⭐ markiert Favoriten, die immer oben stehen.</div>
   </div>
 
   <div class="card">
@@ -964,6 +1042,22 @@ canvas.chart{width:100%;height:170px;display:block}
     <div class="row" style="margin-bottom:8px">
       <label style="flex:2;font-size:14px">Proteinziel (g/Tag)</label>
       <input type="number" id="setProteinTarget" style="max-width:90px" class="shrink" onchange="saveDefaults()">
+    </div>
+    <div class="row" style="margin-bottom:8px">
+      <label style="flex:2;font-size:14px">Kalorienziel (kcal/Tag)</label>
+      <input type="number" id="setKcalTarget" style="max-width:90px" class="shrink" onchange="saveDefaults()">
+    </div>
+    <div class="row" style="margin-bottom:8px">
+      <label style="flex:2;font-size:14px">Kohlenhydrate (g/Tag)</label>
+      <input type="number" id="setCarbTarget" style="max-width:90px" class="shrink" onchange="saveDefaults()">
+    </div>
+    <div class="row" style="margin-bottom:8px">
+      <label style="flex:2;font-size:14px">Fett (g/Tag)</label>
+      <input type="number" id="setFatTarget" style="max-width:90px" class="shrink" onchange="saveDefaults()">
+    </div>
+    <div class="row" style="margin-bottom:8px">
+      <label style="flex:2;font-size:14px">Toilettengänge: obere Normgrenze</label>
+      <input type="number" id="setPeeTarget" style="max-width:90px" class="shrink" onchange="saveDefaults()">
     </div>
     <div class="row">
       <label style="flex:2;font-size:14px">Zielgewicht (kg, optional)</label>
@@ -1112,6 +1206,170 @@ if(!Array.isArray(settings.order)) settings.order=null;
 if(!settings.groups) settings.groups={};
 if(!settings.grpSel) settings.grpSel='alle';
 settings.detox.forEach(r=>{ if(r.alt===undefined) r.alt=''; });
+
+/* ================= Lebensmittel-Datenbank =================
+   b = Bezugsgröße: 'g' -> Werte je 100 g | 'ml' -> je 100 ml | 'stk' -> je Stück
+   k kcal · p Protein · ch Kohlenhydrate · f Fett · w zählt als Wasser (ml je Bezugsgröße)
+   a reiner Alkohol in g je Bezugsgröße · po = Portionen [Bezeichnung, Menge]        */
+const FOOD_CATS=['Favoriten','Fleisch & Fisch','Milch & Eier','Kohlenhydrate','Gemüse & Obst','Fette & Nüsse','Fertig & Snacks','Getränke','Alkohol','Supplements','Eigene'];
+const FOOD_DB=[
+/* --- Fleisch & Fisch --- */
+{i:'d01',n:'Hähnchenbrust',c:'Fleisch & Fisch',b:'g',k:165,p:31,ch:0,f:3.6,po:[['150 g',150],['200 g',200],['250 g',250]]},
+{i:'d02',n:'Putenbrust',c:'Fleisch & Fisch',b:'g',k:111,p:24,ch:0,f:1,po:[['150 g',150],['200 g',200]]},
+{i:'d03',n:'Hähnchenschenkel',c:'Fleisch & Fisch',b:'g',k:210,p:19,ch:0,f:15,po:[['1 Schenkel 150 g',150]]},
+{i:'d04',n:'Rinderhack 5 %',c:'Fleisch & Fisch',b:'g',k:137,p:21,ch:0,f:5,po:[['200 g',200],['250 g',250]]},
+{i:'d05',n:'Hackfleisch gemischt',c:'Fleisch & Fisch',b:'g',k:250,p:17,ch:1,f:20,po:[['200 g',200],['250 g',250]]},
+{i:'d06',n:'Rumpsteak',c:'Fleisch & Fisch',b:'g',k:200,p:27,ch:0,f:10,po:[['200 g',200],['250 g',250]]},
+{i:'d07',n:'Schweinefilet',c:'Fleisch & Fisch',b:'g',k:143,p:22,ch:0,f:5.5,po:[['200 g',200]]},
+{i:'d08',n:'Schnitzel paniert',c:'Fleisch & Fisch',b:'g',k:290,p:20,ch:14,f:16,po:[['1 Schnitzel 180 g',180]]},
+{i:'d09',n:'Kochschinken',c:'Fleisch & Fisch',b:'g',k:110,p:19,ch:1,f:3,po:[['1 Scheibe 25 g',25],['50 g',50]]},
+{i:'d10',n:'Salami',c:'Fleisch & Fisch',b:'g',k:380,p:18,ch:1,f:34,po:[['1 Scheibe 10 g',10],['30 g',30]]},
+{i:'d11',n:'Bratwurst',c:'Fleisch & Fisch',b:'stk',k:250,p:11,ch:1,f:22,po:[['1 Stück',1],['2 Stück',2],['3 Stück',3]]},
+{i:'d12',n:'Wiener Würstchen',c:'Fleisch & Fisch',b:'stk',k:140,p:6,ch:0.5,f:12,po:[['1 Stück',1],['2 Stück',2]]},
+{i:'d13',n:'Leberkäse',c:'Fleisch & Fisch',b:'g',k:300,p:13,ch:2,f:27,po:[['1 Semmel-Portion 150 g',150]]},
+{i:'d14',n:'Bacon / Frühstücksspeck',c:'Fleisch & Fisch',b:'g',k:400,p:13,ch:0,f:39,po:[['2 Scheiben 30 g',30]]},
+{i:'d15',n:'Lachs',c:'Fleisch & Fisch',b:'g',k:208,p:20,ch:0,f:13,po:[['1 Filet 150 g',150],['200 g',200]]},
+{i:'d16',n:'Lachs geräuchert',c:'Fleisch & Fisch',b:'g',k:180,p:22,ch:0,f:10,po:[['100 g',100]]},
+{i:'d17',n:'Thunfisch in Wasser',c:'Fleisch & Fisch',b:'g',k:108,p:24,ch:0,f:1,po:[['1 Dose 150 g',150],['1 kl. Dose 80 g',80]]},
+{i:'d18',n:'Kabeljau / Seelachs',c:'Fleisch & Fisch',b:'g',k:82,p:18,ch:0,f:0.7,po:[['1 Filet 150 g',150]]},
+{i:'d19',n:'Forelle',c:'Fleisch & Fisch',b:'g',k:120,p:20,ch:0,f:4,po:[['1 Filet 150 g',150]]},
+{i:'d20',n:'Garnelen',c:'Fleisch & Fisch',b:'g',k:99,p:24,ch:0,f:0.3,po:[['150 g',150]]},
+{i:'d21',n:'Matjes / Hering',c:'Fleisch & Fisch',b:'g',k:210,p:17,ch:0,f:16,po:[['1 Filet 80 g',80]]},
+/* --- Milch & Eier --- */
+{i:'e01',n:'Skyr natur',c:'Milch & Eier',b:'g',k:63,p:11,ch:4,f:0.2,po:[['Becher 450 g',450],['500 g',500],['150 g',150]]},
+{i:'e02',n:'Magerquark',c:'Milch & Eier',b:'g',k:67,p:12,ch:4,f:0.3,po:[['Becher 250 g',250],['500 g',500]]},
+{i:'e03',n:'Hüttenkäse / körniger Frischkäse',c:'Milch & Eier',b:'g',k:98,p:12,ch:3,f:4.3,po:[['Becher 200 g',200],['100 g',100]]},
+{i:'e04',n:'Griechischer Joghurt 10 %',c:'Milch & Eier',b:'g',k:133,p:6,ch:4,f:10,po:[['150 g',150],['200 g',200]]},
+{i:'e05',n:'Joghurt natur 3,5 %',c:'Milch & Eier',b:'g',k:62,p:3.5,ch:4.7,f:3.5,po:[['Becher 150 g',150]]},
+{i:'e06',n:'Proteinpudding',c:'Milch & Eier',b:'g',k:70,p:10,ch:4,f:1.5,po:[['Becher 200 g',200]]},
+{i:'e07',n:'Ei (M)',c:'Milch & Eier',b:'stk',k:78,p:6.5,ch:0.6,f:5.5,po:[['1 Ei',1],['2 Eier',2],['3 Eier',3],['4 Eier',4],['6 Eier',6]]},
+{i:'e08',n:'Eiklar',c:'Milch & Eier',b:'stk',k:17,p:3.6,ch:0.2,f:0,po:[['3 Stück',3],['5 Stück',5]]},
+{i:'e09',n:'Milch 3,5 %',c:'Milch & Eier',b:'ml',k:64,p:3.4,ch:4.8,f:3.6,w:100,po:[['Glas 250 ml',250],['100 ml',100]]},
+{i:'e10',n:'Milch 1,5 %',c:'Milch & Eier',b:'ml',k:47,p:3.4,ch:4.9,f:1.5,w:100,po:[['Glas 250 ml',250],['100 ml',100]]},
+{i:'e11',n:'Buttermilch',c:'Milch & Eier',b:'ml',k:37,p:3.5,ch:4,f:0.5,w:100,po:[['Glas 250 ml',250],['500 ml',500]]},
+{i:'e12',n:'Harzer Käse',c:'Milch & Eier',b:'g',k:125,p:30,ch:0,f:0.7,po:[['1 Rolle 125 g',125],['1 Taler 25 g',25]]},
+{i:'e13',n:'Gouda 45 %',c:'Milch & Eier',b:'g',k:356,p:25,ch:0,f:28,po:[['1 Scheibe 30 g',30],['60 g',60]]},
+{i:'e14',n:'Mozzarella',c:'Milch & Eier',b:'g',k:250,p:18,ch:1,f:20,po:[['1 Kugel 125 g',125]]},
+{i:'e15',n:'Feta',c:'Milch & Eier',b:'g',k:264,p:14,ch:1,f:21,po:[['50 g',50],['100 g',100]]},
+{i:'e16',n:'Frischkäse',c:'Milch & Eier',b:'g',k:250,p:6,ch:3,f:24,po:[['1 EL 20 g',20],['50 g',50]]},
+{i:'e17',n:'Parmesan',c:'Milch & Eier',b:'g',k:402,p:36,ch:0,f:28,po:[['20 g',20]]},
+{i:'e18',n:'Butter',c:'Milch & Eier',b:'g',k:741,p:0.7,ch:0.6,f:82,po:[['1 TL 5 g',5],['1 EL 15 g',15]]},
+{i:'e19',n:'Sahne 30 %',c:'Milch & Eier',b:'ml',k:300,p:2,ch:3,f:30,po:[['2 EL 30 ml',30],['100 ml',100]]},
+/* --- Kohlenhydrate --- */
+{i:'k01',n:'Haferflocken',c:'Kohlenhydrate',b:'g',k:372,p:13,ch:59,f:7,po:[['Portion 80 g',80],['50 g',50],['100 g',100]]},
+{i:'k02',n:'Reis gekocht',c:'Kohlenhydrate',b:'g',k:130,p:2.7,ch:28,f:0.3,po:[['Portion 200 g',200],['300 g',300]]},
+{i:'k03',n:'Reis roh',c:'Kohlenhydrate',b:'g',k:350,p:7,ch:78,f:1,po:[['Portion 80 g',80],['100 g',100]]},
+{i:'k04',n:'Nudeln gekocht',c:'Kohlenhydrate',b:'g',k:158,p:5.8,ch:31,f:0.9,po:[['Portion 250 g',250],['350 g',350]]},
+{i:'k05',n:'Nudeln roh',c:'Kohlenhydrate',b:'g',k:360,p:12,ch:71,f:1.5,po:[['Portion 100 g',100],['125 g',125]]},
+{i:'k06',n:'Vollkornnudeln roh',c:'Kohlenhydrate',b:'g',k:340,p:14,ch:62,f:2.5,po:[['Portion 100 g',100]]},
+{i:'k07',n:'Kartoffeln gekocht',c:'Kohlenhydrate',b:'g',k:77,p:2,ch:17,f:0.1,po:[['Portion 250 g',250],['350 g',350]]},
+{i:'k08',n:'Süßkartoffel',c:'Kohlenhydrate',b:'g',k:86,p:1.6,ch:20,f:0.1,po:[['Portion 250 g',250]]},
+{i:'k09',n:'Pommes',c:'Kohlenhydrate',b:'g',k:290,p:3.5,ch:36,f:14,po:[['Portion 200 g',200]]},
+{i:'k10',n:'Vollkornbrot Scheibe',c:'Kohlenhydrate',b:'stk',k:110,p:4,ch:20,f:1.2,po:[['1 Scheibe',1],['2 Scheiben',2],['3 Scheiben',3]]},
+{i:'k11',n:'Toastbrot Scheibe',c:'Kohlenhydrate',b:'stk',k:65,p:2,ch:12,f:0.8,po:[['2 Scheiben',2],['3 Scheiben',3]]},
+{i:'k12',n:'Brötchen / Semmel',c:'Kohlenhydrate',b:'stk',k:140,p:5,ch:27,f:1,po:[['1 Stück',1],['2 Stück',2]]},
+{i:'k13',n:'Laugenbrezel',c:'Kohlenhydrate',b:'stk',k:230,p:7,ch:44,f:2,po:[['1 Stück',1]]},
+{i:'k14',n:'Reiswaffel',c:'Kohlenhydrate',b:'stk',k:30,p:0.7,ch:6.5,f:0.2,po:[['2 Stück',2],['4 Stück',4]]},
+{i:'k15',n:'Couscous roh',c:'Kohlenhydrate',b:'g',k:376,p:13,ch:72,f:1.9,po:[['Portion 80 g',80]]},
+{i:'k16',n:'Quinoa roh',c:'Kohlenhydrate',b:'g',k:368,p:14,ch:64,f:6,po:[['Portion 80 g',80]]},
+{i:'k17',n:'Linsen gekocht',c:'Kohlenhydrate',b:'g',k:116,p:9,ch:20,f:0.4,po:[['Portion 200 g',200]]},
+{i:'k18',n:'Kidneybohnen',c:'Kohlenhydrate',b:'g',k:127,p:8.7,ch:22,f:0.5,po:[['1/2 Dose 130 g',130],['1 Dose 260 g',260]]},
+{i:'k19',n:'Kichererbsen',c:'Kohlenhydrate',b:'g',k:164,p:9,ch:27,f:2.6,po:[['1/2 Dose 130 g',130]]},
+{i:'k20',n:'Müsli',c:'Kohlenhydrate',b:'g',k:380,p:9,ch:60,f:10,po:[['Portion 80 g',80]]},
+{i:'k21',n:'Cornflakes',c:'Kohlenhydrate',b:'g',k:380,p:7,ch:84,f:1,po:[['Portion 50 g',50]]},
+/* --- Gemüse & Obst --- */
+{i:'g01',n:'Brokkoli',c:'Gemüse & Obst',b:'g',k:34,p:2.8,ch:7,f:0.4,po:[['200 g',200],['300 g',300]]},
+{i:'g02',n:'Paprika',c:'Gemüse & Obst',b:'g',k:31,p:1,ch:6,f:0.3,po:[['1 Stück 150 g',150]]},
+{i:'g03',n:'Gurke',c:'Gemüse & Obst',b:'g',k:15,p:0.7,ch:3.6,f:0.1,po:[['1/2 Gurke 150 g',150]]},
+{i:'g04',n:'Tomaten',c:'Gemüse & Obst',b:'g',k:18,p:0.9,ch:3.9,f:0.2,po:[['150 g',150]]},
+{i:'g05',n:'Karotten',c:'Gemüse & Obst',b:'g',k:41,p:0.9,ch:10,f:0.2,po:[['150 g',150]]},
+{i:'g06',n:'Zwiebel',c:'Gemüse & Obst',b:'g',k:40,p:1.1,ch:9,f:0.1,po:[['1 Stück 80 g',80]]},
+{i:'g07',n:'Spinat',c:'Gemüse & Obst',b:'g',k:23,p:2.9,ch:3.6,f:0.4,po:[['200 g',200]]},
+{i:'g08',n:'Zucchini',c:'Gemüse & Obst',b:'g',k:17,p:1.2,ch:3.1,f:0.3,po:[['1 Stück 200 g',200]]},
+{i:'g09',n:'Gemischter Salat',c:'Gemüse & Obst',b:'g',k:15,p:1.4,ch:2.9,f:0.2,po:[['Schüssel 150 g',150]]},
+{i:'g10',n:'Avocado',c:'Gemüse & Obst',b:'stk',k:240,p:3,ch:12,f:22,po:[['1/2 Stück',0.5],['1 Stück',1]]},
+{i:'g11',n:'Banane',c:'Gemüse & Obst',b:'stk',k:105,p:1.3,ch:27,f:0.3,po:[['1 Stück',1],['2 Stück',2]]},
+{i:'g12',n:'Apfel',c:'Gemüse & Obst',b:'stk',k:95,p:0.5,ch:25,f:0.3,po:[['1 Stück',1]]},
+{i:'g13',n:'Orange',c:'Gemüse & Obst',b:'stk',k:62,p:1.2,ch:15,f:0.2,po:[['1 Stück',1]]},
+{i:'g14',n:'Beeren gemischt',c:'Gemüse & Obst',b:'g',k:50,p:1,ch:12,f:0.4,po:[['150 g',150],['200 g',200]]},
+{i:'g15',n:'Trauben',c:'Gemüse & Obst',b:'g',k:69,p:0.7,ch:18,f:0.2,po:[['150 g',150]]},
+/* --- Fette & Nüsse --- */
+{i:'n01',n:'Olivenöl',c:'Fette & Nüsse',b:'g',k:884,p:0,ch:0,f:100,po:[['1 TL 5 g',5],['1 EL 10 g',10],['2 EL 20 g',20]]},
+{i:'n02',n:'Rapsöl',c:'Fette & Nüsse',b:'g',k:884,p:0,ch:0,f:100,po:[['1 EL 10 g',10]]},
+{i:'n03',n:'Mandeln',c:'Fette & Nüsse',b:'g',k:579,p:21,ch:22,f:50,po:[['Handvoll 30 g',30],['50 g',50]]},
+{i:'n04',n:'Walnüsse',c:'Fette & Nüsse',b:'g',k:654,p:15,ch:14,f:65,po:[['Handvoll 30 g',30]]},
+{i:'n05',n:'Cashews',c:'Fette & Nüsse',b:'g',k:553,p:18,ch:30,f:44,po:[['Handvoll 30 g',30]]},
+{i:'n06',n:'Erdnussbutter',c:'Fette & Nüsse',b:'g',k:588,p:25,ch:20,f:50,po:[['1 EL 15 g',15],['2 EL 30 g',30]]},
+{i:'n07',n:'Leinsamen geschrotet',c:'Fette & Nüsse',b:'g',k:534,p:18,ch:29,f:42,po:[['1 EL 12 g',12]]},
+{i:'n08',n:'Chiasamen',c:'Fette & Nüsse',b:'g',k:486,p:17,ch:42,f:31,po:[['1 EL 12 g',12]]},
+/* --- Fertig & Snacks --- */
+{i:'s01',n:'Proteinriegel',c:'Fertig & Snacks',b:'stk',k:200,p:20,ch:20,f:7,po:[['1 Riegel',1]]},
+{i:'s02',n:'Schokoriegel',c:'Fertig & Snacks',b:'stk',k:230,p:3,ch:30,f:11,po:[['1 Riegel',1]]},
+{i:'s03',n:'Vollmilchschokolade',c:'Fertig & Snacks',b:'g',k:535,p:7,ch:57,f:30,po:[['1 Reihe 20 g',20],['1/2 Tafel 50 g',50],['1 Tafel 100 g',100]]},
+{i:'s04',n:'Gummibärchen',c:'Fertig & Snacks',b:'g',k:343,p:6.9,ch:77,f:0.5,po:[['Handvoll 30 g',30],['1 Tüte 200 g',200]]},
+{i:'s05',n:'Chips',c:'Fertig & Snacks',b:'g',k:536,p:6,ch:53,f:34,po:[['Handvoll 30 g',30],['1/2 Tüte 100 g',100]]},
+{i:'s06',n:'Eis',c:'Fertig & Snacks',b:'g',k:200,p:3.5,ch:24,f:10,po:[['Portion 100 g',100],['200 g',200]]},
+{i:'s07',n:'Kuchen',c:'Fertig & Snacks',b:'stk',k:350,p:4,ch:45,f:17,po:[['1 Stück',1]]},
+{i:'s08',n:'Croissant',c:'Fertig & Snacks',b:'stk',k:230,p:5,ch:26,f:12,po:[['1 Stück',1]]},
+{i:'s09',n:'Döner',c:'Fertig & Snacks',b:'stk',k:700,p:40,ch:60,f:33,po:[['1 Stück',1]]},
+{i:'s10',n:'Pizza TK (ganz)',c:'Fertig & Snacks',b:'stk',k:800,p:32,ch:90,f:32,po:[['1/2 Pizza',0.5],['1 Pizza',1]]},
+{i:'s11',n:'Currywurst mit Pommes',c:'Fertig & Snacks',b:'stk',k:850,p:25,ch:70,f:50,po:[['1 Portion',1]]},
+{i:'s12',n:'Burger',c:'Fertig & Snacks',b:'stk',k:550,p:25,ch:40,f:30,po:[['1 Stück',1],['2 Stück',2]]},
+{i:'s13',n:'Schnitzel mit Pommes',c:'Fertig & Snacks',b:'stk',k:900,p:45,ch:70,f:45,po:[['1 Portion',1]]},
+{i:'s14',n:'Wurstsemmel',c:'Fertig & Snacks',b:'stk',k:330,p:13,ch:30,f:17,po:[['1 Stück',1]]},
+{i:'s15',n:'Käsesemmel',c:'Fertig & Snacks',b:'stk',k:340,p:15,ch:29,f:18,po:[['1 Stück',1]]},
+/* --- Getränke --- */
+{i:'t01',n:'Wasser',c:'Getränke',b:'ml',k:0,p:0,ch:0,f:0,w:100,po:[['Glas 250 ml',250],['Flasche 500 ml',500],['750 ml',750],['1 Liter',1000]]},
+{i:'t02',n:'Kaffee schwarz',c:'Getränke',b:'ml',k:2,p:0.1,ch:0,f:0,w:100,po:[['Tasse 200 ml',200],['Becher 300 ml',300]]},
+{i:'t03',n:'Kaffee mit Milch',c:'Getränke',b:'ml',k:20,p:1,ch:1.5,f:1,w:100,po:[['Tasse 200 ml',200],['Becher 300 ml',300]]},
+{i:'t04',n:'Espresso',c:'Getränke',b:'stk',k:3,p:0.1,ch:0,f:0,w:30,po:[['1 Tasse',1],['2 Tassen',2]]},
+{i:'t05',n:'Tee ungesüßt',c:'Getränke',b:'ml',k:1,p:0,ch:0,f:0,w:100,po:[['Tasse 250 ml',250]]},
+{i:'t06',n:'Apfelschorle',c:'Getränke',b:'ml',k:22,p:0,ch:5,f:0,w:100,po:[['Glas 300 ml',300],['Flasche 500 ml',500]]},
+{i:'t07',n:'Cola',c:'Getränke',b:'ml',k:42,p:0,ch:10.6,f:0,w:100,po:[['Glas 300 ml',300],['Dose 330 ml',330]]},
+{i:'t08',n:'Cola Zero / Light',c:'Getränke',b:'ml',k:0.3,p:0,ch:0,f:0,w:100,po:[['Dose 330 ml',330],['500 ml',500]]},
+{i:'t09',n:'Energydrink',c:'Getränke',b:'ml',k:45,p:0,ch:11,f:0,w:100,po:[['Dose 250 ml',250],['Dose 500 ml',500]]},
+{i:'t10',n:'Orangensaft',c:'Getränke',b:'ml',k:45,p:0.7,ch:10,f:0.2,w:100,po:[['Glas 200 ml',200]]},
+{i:'t11',n:'Proteinshake (Whey in Wasser)',c:'Getränke',b:'stk',k:120,p:24,ch:3,f:2,w:300,po:[['1 Shake',1],['2 Shakes',2]]},
+/* --- Alkohol --- */
+{i:'a01',n:'Bier 0,5 l',c:'Alkohol',b:'stk',k:215,p:2.5,ch:18,f:0,w:500,a:20,po:[['1 Halbe',1],['2 Halbe',2],['3 Halbe',3]]},
+{i:'a02',n:'Bier 0,33 l',c:'Alkohol',b:'stk',k:142,p:1.7,ch:12,f:0,w:330,a:13,po:[['1 Flasche',1],['2 Flaschen',2]]},
+{i:'a03',n:'Weizenbier 0,5 l',c:'Alkohol',b:'stk',k:250,p:2.5,ch:22,f:0,w:500,a:21,po:[['1 Weizen',1],['2 Weizen',2]]},
+{i:'a04',n:'Radler 0,5 l',c:'Alkohol',b:'stk',k:200,p:1.2,ch:24,f:0,w:500,a:10,po:[['1 Radler',1]]},
+{i:'a05',n:'Alkoholfreies Bier 0,5 l',c:'Alkohol',b:'stk',k:125,p:1,ch:28,f:0,w:500,a:0,po:[['1 Flasche',1]]},
+{i:'a06',n:'Wein 0,2 l',c:'Alkohol',b:'stk',k:170,p:0,ch:5,f:0,w:200,a:19,po:[['1 Glas',1],['2 Gläser',2]]},
+{i:'a07',n:'Prosekko 0,1 l',c:'Alkohol',b:'stk',k:80,p:0,ch:3,f:0,w:100,a:9.5,po:[['1 Glas',1]]},
+{i:'a08',n:'Schnaps 2 cl',c:'Alkohol',b:'stk',k:55,p:0,ch:0,f:0,w:20,a:6.4,po:[['1 Kurzer',1],['2 Kurze',2]]},
+{i:'a09',n:'Whisky 4 cl',c:'Alkohol',b:'stk',k:95,p:0,ch:0,f:0,w:40,a:13,po:[['1 Glas',1]]},
+{i:'a10',n:'Gin Tonic',c:'Alkohol',b:'stk',k:200,p:0,ch:16,f:0,w:250,a:13,po:[['1 Glas',1]]},
+/* --- Supplements --- */
+{i:'u01',n:'Whey Protein Pulver',c:'Supplements',b:'g',k:380,p:75,ch:8,f:6,po:[['1 Scoop 30 g',30],['2 Scoops 60 g',60]]},
+{i:'u02',n:'Kreatin 5 g',c:'Supplements',b:'stk',k:0,p:0,ch:0,f:0,po:[['1 Portion',1]]},
+{i:'u03',n:'Omega-3 Kapsel',c:'Supplements',b:'stk',k:10,p:0,ch:0,f:1,po:[['1 Kapsel',1],['2 Kapseln',2]]},
+{i:'u04',n:'Vitamin D',c:'Supplements',b:'stk',k:0,p:0,ch:0,f:0,po:[['1 Kapsel',1]]},
+{i:'u05',n:'Magnesium',c:'Supplements',b:'stk',k:0,p:0,ch:0,f:0,po:[['1 Portion',1]]},
+{i:'u06',n:'Multivitamin',c:'Supplements',b:'stk',k:0,p:0,ch:0,f:0,po:[['1 Tablette',1]]}
+];
+/* Datenbank aufbauen: Standard + eigene Einträge, Favoriten und Zählerstände bleiben erhalten */
+if(!Array.isArray(settings.fdb)) settings.fdb=[];
+(function(){
+  const have=new Set(settings.fdb.map(x=>x.i));
+  FOOD_DB.forEach(f=>{ if(!have.has(f.i)) settings.fdb.push(JSON.parse(JSON.stringify(f))); });
+  /* alte „Portionen" einmalig als eigene Lebensmittel übernehmen */
+  if(!settings.fdbMigrated){
+    (settings.foods||[]).forEach(o=>{
+      settings.fdb.push({i:'x'+o.id,n:o.name,c:'Eigene',b:'stk',k:Math.round((o.p||0)*4),p:o.p||0,ch:0,f:0,w:o.ml||0,po:[['1 Portion',1]],fav:1});
+    });
+    settings.fdbMigrated=1;
+  }
+  if(!settings.fdbFav){ ['d01','e01','e02','e03','e07','t11','u01','k01','k02','t03'].forEach(id=>{ const f=settings.fdb.find(x=>x.i===id); if(f) f.fav=1; }); settings.fdbFav=1; }
+  settings.fdb.forEach(f=>{ if(f.nUse==null) f.nUse=0; if(!Array.isArray(f.po)||!f.po.length) f.po=[[f.b==='stk'?'1 Stück':'100 '+f.b,f.b==='stk'?1:100]]; });
+})();
+if(!Array.isArray(settings.mealTmpl)) settings.mealTmpl=[];
+if(settings.kcalTarget==null) settings.kcalTarget=2800;
+if(settings.carbTarget==null) settings.carbTarget=300;
+if(settings.fatTarget==null) settings.fatTarget=80;
+if(settings.peeTarget==null) settings.peeTarget=8;
+const MEALS=[['fr','Frühstück','🌅'],['mi','Mittag','🍽️'],['ab','Abend','🌙'],['sn','Snack','🍎'],['wa','Wache','🚒']];
 if(!Array.isArray(settings.foods)) settings.foods=[
   {id:'f1',name:'Skyr 500 g',p:55,ml:0},
   {id:'f2',name:'Proteinshake',p:27,ml:300},
@@ -1158,6 +1416,8 @@ function day(dateStr){ if(!days[dateStr]) days[dateStr]={weight:null,mood:null,r
   const d=days[dateStr]; if(d.sleepH===undefined){d.sleepH=null;d.sleepQ=null;d.waterMl=0;d.proteinG=0;} if(d.waist===undefined){d.waist=null;d.chest=null;d.arm=null;} if(!Array.isArray(d.tasks)) d.tasks=[];
   if(d.wakeups===undefined){d.wakeups=null;d.sleepLat=null;d.energy=null;d.focus=null;}
   if(!Array.isArray(d.intake)) d.intake=[];
+  if(!Array.isArray(d.pee)) d.pee=[];
+  if(d.kcal===undefined){d.kcal=0;d.carbG=0;d.fatG=0;d.alkG=0;}
   if(!d.detoxTag) d.detoxTag={};
   if(!d.trade) d.trade={state:null,n:null,rules:{},tags:[],note:'',res:null};
   if(!d.trade.rules) d.trade.rules={};
@@ -1333,15 +1593,15 @@ function applyVerdicts(found){
 
 /* ================= Karten: klappbar & sortiert ================= */
 const TODAY_ORDER=['card-tasks','card-tomorrow','card-plans','card-goals','card-challenges','card-trade','card-detox',
-  'card-workout','card-quality','card-nutrition','card-weight',
+  'card-workout','card-quality','card-nutrition','card-urin','card-weight',
   'card-sleep','card-recovery','card-mood','card-med','card-read'];
 const GROUPS=[{k:'alle',l:'Alles'},{k:'plan',l:'📋 Plan'},{k:'fokus',l:'🎯 Fokus'},{k:'koerper',l:'💪 Körper'},{k:'kopf',l:'🧠 Kopf'}];
 const GROUP_DEFAULT={'card-tasks':'plan','card-tomorrow':'plan','card-plans':'plan',
   'card-goals':'fokus','card-challenges':'fokus','card-trade':'fokus','card-detox':'fokus',
-  'card-workout':'koerper','card-quality':'koerper','card-nutrition':'koerper','card-weight':'koerper',
+  'card-workout':'koerper','card-quality':'koerper','card-nutrition':'koerper','card-urin':'koerper','card-weight':'koerper',
   'card-sleep':'kopf','card-recovery':'kopf','card-mood':'kopf','card-med':'kopf','card-read':'kopf'};
-const CARD_LABELS={'card-challenges':'Challenges','card-plans':'Wenn-Dann-Pläne','card-recovery':'Erholung & Belastung','card-tomorrow':'Plan für morgen'};
-const CARD_ICONS={'card-challenges':'🏆','card-plans':'🧩','card-recovery':'🔋','card-tomorrow':'🌙'};
+const CARD_LABELS={'card-challenges':'Challenges','card-plans':'Wenn-Dann-Pläne','card-recovery':'Erholung & Belastung','card-tomorrow':'Plan für morgen','card-urin':'Blase & Toilette'};
+const CARD_ICONS={'card-challenges':'🏆','card-plans':'🧩','card-recovery':'🔋','card-tomorrow':'🌙','card-urin':'🚻'};
 function cardOrder(){
   let o=Array.isArray(settings.order)?settings.order.filter(id=>TODAY_ORDER.includes(id)):[];
   TODAY_ORDER.forEach(id=>{ if(!o.includes(id)) o.push(id); });
@@ -1443,8 +1703,8 @@ function jumpTo(id){
   if(c.classList.contains('collapsed')){ c.classList.remove('collapsed'); settings.cards[id]=false; save(); }
   c.scrollIntoView({behavior:'smooth',block:'start'});
 }
-const NAV_ICONS={tasks:'✅',goals:'🎯',trade:'📊',workout:'🏋️',nutrition:'🥩',quality:'🤸',sleep:'😴',mood:'💭',med:'🧘',read:'📖',detox:'📵',weight:'⚖️'};
-const NAV_LABELS={tasks:'Aufgaben',goals:'Ziele',trade:'Trading',workout:'Workout',nutrition:'Essen',quality:'Mobility',sleep:'Schlaf',mood:'Feelings',med:'Meditation',read:'Lesen',detox:'Detox',weight:'Gewicht'};
+const NAV_ICONS={tasks:'✅',goals:'🎯',trade:'📊',workout:'🏋️',nutrition:'🥩',urin:'🚻',quality:'🤸',sleep:'😴',mood:'💭',med:'🧘',read:'📖',detox:'📵',weight:'⚖️'};
+const NAV_LABELS={tasks:'Aufgaben',goals:'Ziele',trade:'Trading',workout:'Workout',nutrition:'Essen',urin:'Blase',quality:'Mobility',sleep:'Schlaf',mood:'Feelings',med:'Meditation',read:'Lesen',detox:'Detox',weight:'Gewicht'};
 function renderNav(){
   const el=document.getElementById('navChips'); if(!el) return;
   const d=day(curDate), a=areaDone(d);
@@ -1468,6 +1728,7 @@ function areaDone(d){
     weight: d.weight!=null,
     sleep: d.sleepH!=null,
     nutrition: d.waterMl>=settings.waterTarget && d.proteinG>=settings.proteinTarget,
+    urin: (d.pee||[]).length>0,
     mood: d.mood!=null && d.review.trim().length>0,
     goals: settings.goals.length>0 && settings.goals.every(g=>d.goals[g.id]!==undefined),
     workout: d.workouts.length>0,
@@ -1526,14 +1787,9 @@ function renderToday(){
   document.getElementById('focusRow').innerHTML=[1,2,3,4,5].map(v=>`<button class="${d.focus===v?'sel':''}" onclick="setFocus(${v})">${v}</button>`).join('');
   renderReadiness();
 
-  // Ernährung
-  const wPct=Math.min(100,Math.round(d.waterMl/settings.waterTarget*100));
-  const pPct=Math.min(100,Math.round(d.proteinG/settings.proteinTarget*100));
-  document.getElementById('waterLabel').textContent=d.waterMl+' / '+settings.waterTarget+' ml';
-  document.getElementById('waterBar').style.width=wPct+'%';
-  document.getElementById('proteinLabel').textContent=d.proteinG+' / '+settings.proteinTarget+' g';
-  document.getElementById('proteinBar').style.width=pPct+'%';
+  // Ernährung & Blase
   renderNutrition(d);
+  renderUrin(d);
 
   // Ziele
   const gl=document.getElementById('goalList'); gl.innerHTML='';
@@ -1739,6 +1995,8 @@ const CH_METRICS={
   nutrition:'Wasser- & Proteinziel erreicht',
   trade:'Tradingregeln eingehalten',
   mob:'Mobility gemacht',
+  noalk:'Alkoholfreier Tag',
+  protein:'Proteinziel erreicht',
   quality:'Lebensqualität-Anker erreicht'
 };
 function chMetricName(m){
@@ -1750,6 +2008,8 @@ function chDayOk(m,d){
   if(m==='score66') return dayScore(d)>=0.66;
   if(m==='trade') return !!(d.trade&&d.trade.state==='ok');
   if(m==='mob') return (d.mobMin||0)>0;
+  if(m==='noalk') return dayHasData(d) && (d.alkG||0)===0;
+  if(m==='protein') return (d.proteinG||0)>=settings.proteinTarget;
   const a=areaDone(d);
   if(m==='score100') return coreAreas().every(k=>a[k]);
   if(m.startsWith('goal:')) return d.goals[m.slice(5)]===true;
@@ -1772,7 +2032,8 @@ function dayHasData(d){
   return d.weight!=null||d.mood!=null||!!(d.review||'').trim()||!!(d.grateful||'').trim()
     ||Object.keys(d.goals||{}).length>0||(d.workouts||[]).length>0||(d.readMin||0)>0||(d.medMin||0)>0
     ||Object.keys(d.detox||{}).length>0||d.sleepH!=null||(d.waterMl||0)>0||(d.proteinG||0)>0||(d.tasks||[]).length>0
-    ||!!(d.trade&&d.trade.state)||(d.mobMin||0)>0||Object.keys(d.quality||{}).length>0;
+    ||!!(d.trade&&d.trade.state)||(d.mobMin||0)>0||Object.keys(d.quality||{}).length>0
+    ||(d.intake||[]).length>0||(d.pee||[]).length>0;
 }
 /* Tag ohne Bewertung für genau diese Metrik (z. B. nicht getradet → Ziel weder ja noch nein) */
 function chDayOpen(m,ds){
@@ -1780,6 +2041,7 @@ function chDayOpen(m,ds){
   if(!dayHasData(d)) return true;
   if(m&&m.startsWith('goal:')) return d.goals[m.slice(5)]===undefined;
   if(m==='trade'){ const st=d.trade&&d.trade.state; return st==null||st==='none'; }
+  if(m==='noalk'||m==='protein') return !(d.intake||[]).length;
   return false;
 }
 function chProgress(ch){
@@ -2058,71 +2320,472 @@ function exportShiftICS(){
   toast(n+' Diensttage in '+blocks+' Terminen exportiert ✓');
 }
 
-/* ================= Ernährung: Portionen & Tagesliste ================= */
+/* ================= Ernährung: Datenbank, Erfassung, Mahlzeiten ================= */
 function nowHM(){ const n=new Date(); return String(n.getHours()).padStart(2,'0')+':'+String(n.getMinutes()).padStart(2,'0'); }
-function logIntake(name,p,ml){
+function fdbGet(id){ return (settings.fdb||[]).find(f=>f.i===id); }
+function unitLabel(f){ return f.b==='g'?'g':f.b==='ml'?'ml':'Stück'; }
+function qLabel(e){
+  if(e.u==='stk'){ const q=e.q; return (q===1?'1 Stück':(q%1?String(q).replace('.',','):q)+(q===0.5?'':' ')+(q===0.5?' Stück':'Stück')); }
+  return fmtN(e.q)+' '+(e.u||'g');
+}
+function fmtN(x){ return (Math.round(x*10)/10).toString().replace('.',','); }
+function foodCalc(f,q){
+  const m = f.b==='stk' ? q : q/100;
+  return {kcal:(f.k||0)*m,p:(f.p||0)*m,c:(f.ch||0)*m,f:(f.f||0)*m,ml:(f.w||0)*m,alk:(f.a||0)*m};
+}
+/* Mahlzeit nach Uhrzeit vorschlagen */
+function curMeal(){
+  const h=new Date().getHours();
+  if(isDuty(curDate)&&(h>=22||h<5)) return 'wa';
+  if(h<10.5) return 'fr'; if(h<15) return 'mi'; if(h<21) return 'ab'; return 'sn';
+}
+let _meal=null;
+function mealKey(){ return _meal||curMeal(); }
+function setMeal(m){ _meal=m; renderToday(); }
+function mealName(k){ const m=MEALS.find(x=>x[0]===k); return m?m[1]:'Sonstiges'; }
+function mealIcon(k){ const m=MEALS.find(x=>x[0]===k); return m?m[2]:'•'; }
+
+/* --- Tagessummen immer aus der Liste ableiten --- */
+function recalcDay(d){
+  let k=0,p=0,c=0,f=0,ml=0,al=0;
+  (d.intake||[]).forEach(e=>{ k+=e.kcal||0; p+=e.p||0; c+=e.c||0; f+=e.f||0; ml+=e.ml||0; al+=e.alk||0; });
+  d.kcal=Math.round(k); d.proteinG=Math.round(p); d.carbG=Math.round(c); d.fatG=Math.round(f);
+  d.waterMl=Math.round(ml); d.alkG=Math.round(al);
+}
+function logFood(fid,q,meal){
+  const f=fdbGet(fid); if(!f||!q) return;
+  const d=day(curDate), v=foodCalc(f,q);
+  d.intake.push({t:curDate===todayStr()?nowHM():'—',fid:f.i,name:f.n,q:q,u:f.b,meal:meal||mealKey(),
+    kcal:Math.round(v.kcal),p:Math.round(v.p*10)/10,c:Math.round(v.c*10)/10,f:Math.round(v.f*10)/10,
+    ml:Math.round(v.ml),alk:Math.round(v.alk*10)/10});
+  f.nUse=(f.nUse||0)+1;
+  recalcDay(d); save(); renderToday();
+}
+function updateIntake(i,q,meal){
+  const d=day(curDate), e=d.intake[i]; if(!e) return;
+  const f=e.fid?fdbGet(e.fid):null;
+  if(f){ const v=foodCalc(f,q);
+    Object.assign(e,{q:q,meal:meal||e.meal,kcal:Math.round(v.kcal),p:Math.round(v.p*10)/10,
+      c:Math.round(v.c*10)/10,f:Math.round(v.f*10)/10,ml:Math.round(v.ml),alk:Math.round(v.alk*10)/10});
+  } else { e.meal=meal||e.meal; }
+  recalcDay(d); save(); renderToday();
+}
+function logIntake(name,p,ml,extra){
   const d=day(curDate);
-  if(!Array.isArray(d.intake)) d.intake=[];
-  d.intake.push({t:curDate===todayStr()?nowHM():'—',name,p:p||0,ml:ml||0});
-  d.proteinG=Math.max(0,(d.proteinG||0)+(p||0));
-  d.waterMl=Math.max(0,(d.waterMl||0)+(ml||0));
-  save(); renderToday();
+  d.intake.push(Object.assign({t:curDate===todayStr()?nowHM():'—',name:name,p:p||0,ml:ml||0,meal:mealKey(),kcal:0,c:0,f:0,alk:0},extra||{}));
+  recalcDay(d); save(); renderToday();
 }
-function delIntake(i){
-  const d=day(curDate); const e=(d.intake||[])[i]; if(!e) return;
-  d.proteinG=Math.max(0,(d.proteinG||0)-(e.p||0));
-  d.waterMl=Math.max(0,(d.waterMl||0)-(e.ml||0));
-  d.intake.splice(i,1); save(); renderToday();
+function delIntake(i){ const d=day(curDate); if(!d.intake[i]) return; d.intake.splice(i,1); recalcDay(d); save(); renderToday(); }
+function addWater(ml,name){ if(!ml)return; logIntake(name||'Wasser',0,ml); }
+function addProtein(g,name){ if(!g)return; logIntake(name||'Protein',g,0); }
+function addFood(id){ const f=fdbGet(id)||fdbGet('x'+id); if(f) quickAddFood(f.i); }
+
+/* --- Schnell-Chips: eine Berührung = Standardportion --- */
+function quickAddFood(fid){
+  const f=fdbGet(fid); if(!f) return;
+  const q=f.po[0][1];
+  logFood(fid,q,mealKey());
+  toast(f.n+' · '+f.po[0][0]+' ✓');
 }
-function addFood(id){ const f=settings.foods.find(x=>x.id===id); if(!f) return; logIntake(f.name,f.p,f.ml); toast(f.name+' eingetragen ✓'); }
+function topFoods(limit){
+  return (settings.fdb||[]).slice()
+    .filter(f=>f.fav||f.nUse>0)
+    .sort((a,b)=>(b.fav?1:0)-(a.fav?1:0)||(b.nUse||0)-(a.nUse||0)||a.n.localeCompare(b.n))
+    .slice(0,limit||12);
+}
+
+/* --- Suche --- */
+function normStr(x){ return String(x).toLowerCase().replace(/[äÄ]/g,'a').replace(/[öÖ]/g,'o').replace(/[üÜ]/g,'u').replace(/ß/g,'ss'); }
+function clearFoodSearch(){ const el=document.getElementById('foodSearch'); if(el) el.value=''; renderFoodSearch(); }
+function renderFoodSearch(){
+  const inp=document.getElementById('foodSearch'), box=document.getElementById('foodResults');
+  if(!inp||!box) return;
+  const q=normStr(inp.value.trim());
+  if(!q){ box.classList.remove('show'); box.innerHTML=''; return; }
+  const words=q.split(/\s+/);
+  let hits=(settings.fdb||[]).map(f=>{
+    const nn=normStr(f.n);
+    if(!words.every(w=>nn.includes(w))) return null;
+    let sc=(nn.startsWith(q)?100:0)+(f.fav?30:0)+Math.min(20,(f.nUse||0));
+    return {f:f,sc:sc};
+  }).filter(Boolean).sort((a,b)=>b.sc-a.sc||a.f.n.localeCompare(b.f.n)).slice(0,40);
+  let html='';
+  let lastCat='';
+  hits.forEach(h=>{
+    const f=h.f, p0=f.po[0], v=foodCalc(f,p0[1]);
+    if(f.c!==lastCat){ html+=`<div class="fcat">${esc(f.c)}</div>`; lastCat=f.c; }
+    html+=`<div class="fr" onclick="openFoodSheet('${f.i}')">
+      <div class="nm">${esc(f.n)}<i>${esc(p0[0])} · ${Math.round(v.kcal)} kcal${f.a?' · '+fmtN(v.alk)+' g Alk.':''}</i></div>
+      <div class="pp">${fmtN(v.p)} g P<span>${Math.round(v.c)} KH · ${fmtN(v.f)} F</span></div>
+      <button class="go" onclick="event.stopPropagation();quickAddFood('${f.i}')">＋</button></div>`;
+  });
+  html+=`<div class="fr" onclick="newFoodQuick(document.getElementById('foodSearch').value.trim())">
+    <div class="nm" style="color:var(--sage)">＋ „${esc(inp.value.trim())}" neu anlegen</div></div>`;
+  box.innerHTML=html; box.classList.add('show');
+}
+
+/* --- Mengen-Sheet --- */
+let _fsFood=null,_fsEdit=null,_fsMeal='fr';
+function fsSet(v){ const el=document.getElementById('fsQ'); if(el){ el.value=v; fsPrev(); }
+  document.querySelectorAll('#fsPorts button').forEach(b=>b.classList.toggle('sel',parseFloat(b.dataset.a)===v)); }
+function fsMeal(m){ _fsMeal=m; document.querySelectorAll('#fsMeals button').forEach(b=>b.classList.toggle('sel',b.dataset.m===m)); }
+function fsPrev(){
+  const el=document.getElementById('fsPrev'); if(!el||!_fsFood) return;
+  const q=parseFloat((document.getElementById('fsQ').value||'0').replace(',','.'))||0;
+  const v=foodCalc(_fsFood,q);
+  el.innerHTML=`<div><b>${Math.round(v.kcal)}</b>kcal</div><div><b>${fmtN(v.p)}</b>Protein</div>
+    <div><b>${fmtN(v.c)}</b>KH</div><div><b>${fmtN(v.f)}</b>Fett</div>${v.ml?`<div><b>${Math.round(v.ml)}</b>ml</div>`:''}`;
+}
+function openFoodSheet(fid,editIdx){
+  const f=fdbGet(fid); if(!f) return;
+  _fsFood=f; _fsEdit=(editIdx==null?null:editIdx);
+  const d=day(curDate);
+  const cur=_fsEdit!=null?(d.intake[_fsEdit].q||f.po[0][1]):f.po[0][1];
+  _fsMeal=_fsEdit!=null?(d.intake[_fsEdit].meal||mealKey()):mealKey();
+  openModal(f.n,
+    `<div class="portrow" id="fsPorts">${f.po.map(p=>`<button data-a="${p[1]}" class="${p[1]===cur?'sel':''}" onclick="fsSet(${p[1]})">${esc(p[0])}</button>`).join('')}</div>
+     <label>Menge in ${unitLabel(f)}</label>
+     <input type="number" inputmode="decimal" step="any" id="fsQ" value="${cur}" oninput="fsPrev()">
+     <label style="margin-top:10px;display:block">Mahlzeit</label>
+     <div class="portrow" id="fsMeals">${MEALS.map(m=>`<button data-m="${m[0]}" class="${m[0]===_fsMeal?'sel':''}" onclick="fsMeal('${m[0]}')">${m[2]} ${m[1]}</button>`).join('')}</div>
+     <div class="macroprev" id="fsPrev"></div>
+     <div class="hint">Werte je ${f.b==='stk'?'Stück':'100 '+f.b}: ${f.k} kcal · ${f.p} g Protein · ${f.ch} g KH · ${f.f} g Fett${f.w?' · '+f.w+' ml':''}</div>
+     ${_fsEdit!=null?'<button class="btn warn small" style="margin-top:10px;width:100%" onclick="closeModal();delIntake('+_fsEdit+')">Eintrag löschen</button>':''}`,
+    ()=>{
+      const q=parseFloat((document.getElementById('fsQ').value||'').replace(',','.'))||0;
+      if(q<=0){ toast('Bitte eine Menge angeben.'); return false; }
+      if(_fsEdit!=null){ updateIntake(_fsEdit,q,_fsMeal); toast('Angepasst ✓'); }
+      else { logFood(f.i,q,_fsMeal); toast(f.n+' eingetragen ✓'); clearFoodSearch(); }
+    });
+  fsPrev();
+}
+function editIntake(i){
+  const d=day(curDate), e=d.intake[i]; if(!e) return;
+  if(e.fid&&fdbGet(e.fid)) return openFoodSheet(e.fid,i);
+  openModal('Eintrag bearbeiten',
+    `<label>Bezeichnung</label><input id="eiN" value="${esc(e.name)}">
+     <label>Protein (g)</label><input type="number" step="any" id="eiP" value="${e.p||0}">
+     <label>Wasser (ml)</label><input type="number" id="eiMl" value="${e.ml||0}">
+     <label>Kalorien</label><input type="number" id="eiK" value="${e.kcal||0}">
+     <button class="btn warn small" style="margin-top:12px;width:100%" onclick="closeModal();delIntake(${i})">Eintrag löschen</button>`,
+    ()=>{ e.name=document.getElementById('eiN').value.trim()||e.name;
+      e.p=parseFloat(document.getElementById('eiP').value)||0;
+      e.ml=parseInt(document.getElementById('eiMl').value)||0;
+      e.kcal=parseInt(document.getElementById('eiK').value)||0;
+      recalcDay(d); save(); renderToday(); });
+}
 function quickAsk(kind){
   const isW=kind==='water';
-  openModal(isW?'Wasser eintragen':'Protein eintragen',
-    `<label>${isW?'Milliliter':'Gramm Protein'}</label><input type="number" inputmode="numeric" id="qaVal" placeholder="${isW?'z. B. 400':'z. B. 35'}">
-     <label>Bezeichnung (optional)</label><input id="qaName" placeholder="${isW?'Wasser':'z. B. Linsensuppe'}">
-     <div class="hint">Negative Werte korrigieren eine Fehleingabe.</div>`,
+  openModal(isW?'Wasser eintragen':'Frei eintragen',
+    `<label>${isW?'Milliliter':'Bezeichnung'}</label>${isW?'<input type="number" inputmode="numeric" id="qaVal" placeholder="z. B. 400">':'<input id="qaName" placeholder="z. B. Linsensuppe">'}
+     ${isW?'<label>Bezeichnung (optional)</label><input id="qaName" placeholder="Wasser">':`
+     <div class="row" style="margin-top:8px">
+       <input type="number" step="any" id="qaP" placeholder="g Protein" class="shrink">
+       <input type="number" id="qaK" placeholder="kcal" class="shrink">
+     </div>
+     <div class="row" style="margin-top:8px">
+       <input type="number" step="any" id="qaC" placeholder="g KH" class="shrink">
+       <input type="number" step="any" id="qaF" placeholder="g Fett" class="shrink">
+     </div>
+     <input type="number" id="qaVal" placeholder="ml (optional)" style="margin-top:8px">`}
+     <div class="hint">Für alles, was nicht in der Datenbank steht – z. B. Essen bei den Schwiegereltern. Wenn du es öfter isst, lege es lieber als Lebensmittel an.</div>`,
     ()=>{
-      const v=parseInt(document.getElementById('qaVal').value)||0;
-      if(!v){ toast('Bitte eine Menge angeben.'); return false; }
-      const nm=document.getElementById('qaName').value.trim()||(isW?'Wasser':'Protein');
-      logIntake(nm, isW?0:v, isW?v:0);
+      const nm=(document.getElementById('qaName').value||'').trim()||(isW?'Wasser':'Mahlzeit');
+      const ml=parseInt((document.getElementById('qaVal')||{}).value)||0;
+      if(isW){ if(!ml){ toast('Bitte eine Menge angeben.'); return false; } logIntake(nm,0,ml); return; }
+      const p=parseFloat(document.getElementById('qaP').value)||0;
+      const k=parseInt(document.getElementById('qaK').value)||0;
+      const c=parseFloat(document.getElementById('qaC').value)||0;
+      const f=parseFloat(document.getElementById('qaF').value)||0;
+      if(!p&&!k&&!ml){ toast('Bitte mindestens einen Wert angeben.'); return false; }
+      logIntake(nm,p,ml,{kcal:k,c:c,f:f});
     });
+}
+function newFoodQuick(name){
+  openModal('Lebensmittel anlegen',
+    `<label>Name</label><input id="nfN" value="${esc(name||'')}" placeholder="z. B. Protein-Brot">
+     <label style="margin-top:8px;display:block">Werte beziehen sich auf</label>
+     <div class="portrow" id="nfBase">
+       <button data-b="g" class="sel" onclick="nfBase('g')">100 g</button>
+       <button data-b="ml" onclick="nfBase('ml')">100 ml</button>
+       <button data-b="stk" onclick="nfBase('stk')">1 Stück</button>
+     </div>
+     <div class="row" style="margin-top:8px">
+       <input type="number" id="nfK" placeholder="kcal" class="shrink">
+       <input type="number" step="any" id="nfP" placeholder="Protein g" class="shrink">
+     </div>
+     <div class="row" style="margin-top:8px">
+       <input type="number" step="any" id="nfC" placeholder="KH g" class="shrink">
+       <input type="number" step="any" id="nfF" placeholder="Fett g" class="shrink">
+     </div>
+     <label style="margin-top:8px;display:block">Zählt als Wasser (ml, optional)</label>
+     <input type="number" id="nfW" placeholder="z. B. 300 bei einem Shake">
+     <label style="margin-top:8px;display:block">Standardportion</label>
+     <input type="number" step="any" id="nfPo" placeholder="z. B. 150">
+     <div class="hint">Die Werte stehen auf der Verpackung – meist direkt als „je 100 g". Die Standardportion ist die Menge, die du üblicherweise isst; sie wird beim Antippen des Chips sofort eingetragen.</div>`,
+    ()=>{
+      const nm=document.getElementById('nfN').value.trim();
+      if(!nm){ toast('Name fehlt.'); return false; }
+      const b=_nfBase, po=parseFloat((document.getElementById('nfPo').value||'').replace(',','.'))||(b==='stk'?1:100);
+      settings.fdb.push({i:'c'+Date.now(),n:nm,c:'Eigene',b:b,
+        k:parseInt(document.getElementById('nfK').value)||0,
+        p:parseFloat((document.getElementById('nfP').value||'').replace(',','.'))||0,
+        ch:parseFloat((document.getElementById('nfC').value||'').replace(',','.'))||0,
+        f:parseFloat((document.getElementById('nfF').value||'').replace(',','.'))||0,
+        w:parseInt(document.getElementById('nfW').value)||0,
+        po:[[b==='stk'?(po===1?'1 Stück':po+' Stück'):po+' '+b,po]],fav:1,nUse:0});
+      save(); clearFoodSearch(); renderToday(); if(currentView==='settings') renderSettings();
+      toast(nm+' angelegt ✓');
+    });
+  _nfBase='g';
+}
+let _nfBase='g';
+function nfBase(b){ _nfBase=b; document.querySelectorAll('#nfBase button').forEach(x=>x.classList.toggle('sel',x.dataset.b===b)); }
+
+/* --- Vorlagen: ganze Mahlzeiten speichern und wieder einsetzen --- */
+function openMealTemplates(){
+  const d=day(curDate);
+  const list=(settings.mealTmpl||[]).map((t,i)=>{
+    const sum=t.items.reduce((a,e)=>a+(e.kcal||0),0), pr=t.items.reduce((a,e)=>a+(e.p||0),0);
+    return `<div class="sitem"><span style="flex:1;cursor:pointer" onclick="closeModal();applyMealTmpl('${t.id}')">${esc(t.name)}
+      <span class="tag">${t.items.length} Pos. · ${Math.round(sum)} kcal · ${fmtN(pr)} g P</span></span>
+      <button class="btn ghost small" onclick="delMealTmpl(${i})">✕</button></div>`;
+  }).join('')||'<div class="hint">Noch keine Vorlagen.</div>';
+  openModal('Mahlzeit-Vorlagen',
+    `<div class="setlist">${list}</div>
+     <label style="margin-top:12px;display:block">Aktuelle Mahlzeit als Vorlage sichern</label>
+     <div class="portrow" id="tmMeals">${MEALS.map(m=>`<button data-m="${m[0]}" class="${m[0]===mealKey()?'sel':''}" onclick="tmMeal('${m[0]}')">${m[2]} ${m[1]}</button>`).join('')}</div>
+     <input id="tmName" placeholder="Name, z. B. Wach-Frühstück" style="margin-top:8px">
+     <button class="btn small" style="margin-top:8px;width:100%" onclick="saveMealTmpl()">＋ Als Vorlage speichern</button>
+     <div class="hint">Vorlage antippen setzt alle Positionen auf den heutigen Tag – ideal für die Standard-Wachtagsbox.</div>`, ()=>{});
+  _tmMeal=mealKey();
+}
+let _tmMeal='fr';
+function tmMeal(m){ _tmMeal=m; document.querySelectorAll('#tmMeals button').forEach(b=>b.classList.toggle('sel',b.dataset.m===m)); }
+function saveMealTmpl(){
+  const d=day(curDate);
+  const items=(d.intake||[]).filter(e=>(e.meal||'fr')===_tmMeal);
+  if(!items.length){ toast('Für '+mealName(_tmMeal)+' ist heute nichts erfasst.'); return; }
+  const nm=(document.getElementById('tmName').value||'').trim()||mealName(_tmMeal)+' '+curDate.slice(5);
+  settings.mealTmpl.push({id:'t'+Date.now(),name:nm,meal:_tmMeal,items:items.map(e=>({...e,t:'—'}))});
+  save(); closeModal(); toast('Vorlage „'+nm+'" gespeichert ✓');
+}
+function delMealTmpl(i){ settings.mealTmpl.splice(i,1); save(); closeModal(); openMealTemplates(); }
+function applyMealTmpl(id){
+  const t=(settings.mealTmpl||[]).find(x=>x.id===id); if(!t) return;
+  const d=day(curDate);
+  t.items.forEach(e=>d.intake.push({...e,t:curDate===todayStr()?nowHM():'—'}));
+  recalcDay(d); save(); renderToday(); toast(t.items.length+' Positionen eingetragen ✓');
 }
 function copyIntakeYesterday(){
   const y=days[prevDayStr(curDate)];
-  if(!y||!(y.intake||[]).length){ toast('Für gestern sind keine Portionen erfasst.'); return; }
+  if(!y||!(y.intake||[]).length){ toast('Für gestern sind keine Einträge erfasst.'); return; }
   const d=day(curDate);
-  y.intake.forEach(e=>{ d.intake.push({...e}); d.proteinG+=e.p||0; d.waterMl+=e.ml||0; });
-  save(); renderToday(); toast(y.intake.length+' Portionen von gestern übernommen ✓');
+  y.intake.forEach(e=>d.intake.push({...e}));
+  recalcDay(d); save(); renderToday(); toast(y.intake.length+' Positionen von gestern übernommen ✓');
 }
-/* Vorschlag: welche Portionen schließen die Lücke? */
+/* Vorschlag: was schließt die Proteinlücke? */
 function fillSuggestion(missing){
-  const pool=settings.foods.filter(f=>f.p>0).slice().sort((a,b)=>b.p-a.p);
+  const pool=topFoods(30).filter(f=>{ const v=foodCalc(f,f.po[0][1]); return v.p>=8; })
+    .map(f=>({n:f.n,p:foodCalc(f,f.po[0][1]).p})).sort((a,b)=>b.p-a.p);
   if(!pool.length||missing<=0) return '';
   const picked=[]; let rest=missing;
-  for(const f of pool){ while(rest>=f.p*0.7&&picked.length<4){ picked.push(f.name); rest-=f.p; } }
+  for(const f of pool){ while(rest>=f.p*0.7&&picked.length<3){ picked.push(f.n); rest-=f.p; } }
   return picked.length?' · z. B. '+picked.join(' + '):'';
 }
+
+/* --- Rendering --- */
 function renderNutrition(d){
-  const fc=document.getElementById('foodChips');
-  if(fc) fc.innerHTML=settings.foods.map(f=>
-    `<span class="fc" onclick="addFood('${f.id}')">${esc(f.name)} <b>${f.p} g</b></span>`).join('')
-    +`<span class="fc add" onclick="showView('settings');setTimeout(()=>jumpTo('card-foods'),120)">+ Portion anlegen</span>`;
-  const wr=document.getElementById('waterRemain');
-  if(wr){ const miss=settings.waterTarget-d.waterMl;
-    wr.innerHTML=miss>0?`Noch <b>${miss} ml</b> – das sind ${Math.ceil(miss/250)} Gläser.`:'Wasserziel erreicht ✓'; }
+  const T={kcal:settings.kcalTarget,p:settings.proteinTarget,c:settings.carbTarget,f:settings.fatTarget};
+  const mg=document.getElementById('macroGrid');
+  if(mg){
+    const cell=(cls,val,tgt,lab,unit)=>{
+      const pct=tgt?Math.min(100,Math.round(val/tgt*100)):0;
+      return `<div class="mg ${cls} ${tgt&&val>tgt*1.05?'over':''}"><div class="v">${Math.round(val)}</div>
+        <div class="l">${lab}${tgt?' / '+tgt:''}</div><div class="mb"><i style="width:${pct}%"></i></div></div>`;
+    };
+    mg.innerHTML=cell('kcal',d.kcal||0,T.kcal,'kcal')+cell('prot',d.proteinG||0,T.p,'Protein g')
+      +cell('carb',d.carbG||0,T.c,'KH g')+cell('fat',d.fatG||0,T.f,'Fett g');
+  }
   const pr=document.getElementById('proteinRemain');
-  if(pr){ const miss=settings.proteinTarget-d.proteinG;
-    pr.innerHTML=miss>0?`Noch <b>${miss} g</b>${fillSuggestion(miss)}`:`Proteinziel erreicht ✓ (${d.proteinG-settings.proteinTarget} g darüber)`; }
+  if(pr){ const miss=T.p-(d.proteinG||0);
+    let extra='';
+    if(d.alkG) extra=` · 🍺 ${fmtN(d.alkG)} g Alkohol (${fmtN(d.alkG/12)} Einheiten)`;
+    pr.innerHTML=(miss>0?`Noch <b>${miss} g Protein</b>${fillSuggestion(miss)}`:`Proteinziel erreicht ✓ (${(d.proteinG||0)-T.p} g darüber)`)+extra; }
+
+  const mt=document.getElementById('mealTabs');
+  if(mt){ const k=mealKey();
+    mt.innerHTML=MEALS.map(m=>{
+      const items=(d.intake||[]).filter(e=>(e.meal||'fr')===m[0]);
+      const kc=items.reduce((a,e)=>a+(e.kcal||0),0);
+      return `<button class="${m[0]===k?'sel':''}" onclick="setMeal('${m[0]}')">${m[2]} ${m[1]}${items.length?`<i>${Math.round(kc)}</i>`:''}</button>`;
+    }).join('');
+  }
+  const fc=document.getElementById('foodChips');
+  if(fc){
+    fc.innerHTML=topFoods(14).map(f=>{
+      const v=foodCalc(f,f.po[0][1]);
+      return `<span class="fc" onclick="quickAddFood('${f.i}')">${esc(f.n.length>22?f.n.slice(0,21)+'…':f.n)} <b>${fmtN(v.p)} g</b>
+        <span style="color:var(--muted);margin-left:4px" onclick="event.stopPropagation();openFoodSheet('${f.i}')">⋯</span></span>`;
+    }).join('')+`<span class="fc add" onclick="document.getElementById('foodSearch').focus()">🔍 suchen</span>`;
+  }
+  const wr=document.getElementById('waterRemain');
+  if(wr){ const miss=settings.waterTarget-(d.waterMl||0);
+    wr.innerHTML=miss>0?`Noch <b>${miss} ml</b> – das sind ${Math.ceil(miss/250)} Gläser.`:'Wasserziel erreicht ✓'; }
+  const wl=document.getElementById('waterLabel'); if(wl) wl.textContent=(d.waterMl||0)+' / '+settings.waterTarget+' ml';
+  const wb=document.getElementById('waterBar'); if(wb) wb.style.width=Math.min(100,Math.round((d.waterMl||0)/settings.waterTarget*100))+'%';
+
   const il=document.getElementById('intakeList');
   if(il){
     const list=d.intake||[];
-    il.innerHTML=list.length? list.map((e,i)=>
-      `<div class="ie"><span class="t">${esc(e.t||'')}</span><span class="n">${esc(e.name)}</span>
-       ${e.p?`<span class="v">${e.p} g</span>`:''}${e.ml?`<span class="v w">${e.ml} ml</span>`:''}
-       <button onclick="delIntake(${i})" aria-label="Eintrag entfernen">✕</button></div>`).join('')
-      : '<div class="hint" style="margin:2px 0 0">Noch nichts erfasst. Tippe oben eine Portion an – oder übernimm den gestrigen Tag.</div>';
+    if(!list.length){ il.innerHTML='<div class="hint" style="margin:2px 0 0">Noch nichts erfasst. Suchfeld antippen, Lebensmittel wählen – oder den gestrigen Tag übernehmen.</div>'; }
+    else{
+      let html='';
+      MEALS.forEach(m=>{
+        const idx=list.map((e,i)=>[e,i]).filter(([e])=>(e.meal||'fr')===m[0]);
+        if(!idx.length) return;
+        const kc=idx.reduce((a,[e])=>a+(e.kcal||0),0), pp=idx.reduce((a,[e])=>a+(e.p||0),0);
+        html+=`<div class="mealhead">${m[2]} ${m[1]}<span class="ln"></span><span class="kc">${Math.round(kc)} kcal · ${fmtN(pp)} g P</span></div>`;
+        idx.forEach(([e,i])=>{
+          html+=`<div class="ie"><span class="t">${esc(e.t||'')}</span>
+            <span class="n" onclick="editIntake(${i})" style="cursor:pointer">${esc(e.name)}${e.q?` <span style="color:var(--muted)">${e.u==='stk'?fmtN(e.q)+'×':fmtN(e.q)+' '+e.u}</span>`:''}</span>
+            ${e.p?`<span class="v">${fmtN(e.p)} g</span>`:''}${e.ml?`<span class="v w">${e.ml} ml</span>`:''}
+            <button onclick="delIntake(${i})" aria-label="Eintrag entfernen">✕</button></div>`;
+        });
+      });
+      il.innerHTML=html;
+    }
   }
+}
+
+/* ================= Blase & Miktion ================= */
+const PEE_COLORS=['#f5f0c8','#f2e58a','#efd94e','#e8c33a','#d9a02b','#b8791f'];
+const PEE_COLTXT=['sehr hell – reichlich getrunken','hell – gut hydriert','strohgelb – im grünen Bereich','dunkler gelb – etwas mehr trinken','bernstein – zu wenig getrunken','dunkel – deutlich zu wenig'];
+function peeIsNight(t){ const h=parseInt(String(t).slice(0,2))||0; return h>=23||h<6; }
+function sortPee(d){ d.pee.sort((a,b)=>String(a.t).localeCompare(String(b.t))); }
+function logPee(detail){
+  const d=day(curDate);
+  if(!detail){
+    d.pee.push({t:curDate===todayStr()?nowHM():'12:00',vol:null,col:null,urg:0});
+    sortPee(d); save(); renderToday(); toast('Toilettengang eingetragen ✓'); return;
+  }
+  _peeVol=null; _peeCol=null; _peeUrg=0;
+  openModal('Toilettengang mit Details',
+    `<label>Uhrzeit</label><input type="time" id="peT" value="${curDate===todayStr()?nowHM():'12:00'}">
+     <label style="margin-top:10px;display:block">Menge</label>
+     <div class="portrow" id="peV">
+       <button data-v="1" onclick="peeVol(1)">wenig</button>
+       <button data-v="2" onclick="peeVol(2)">normal</button>
+       <button data-v="3" onclick="peeVol(3)">viel</button>
+     </div>
+     <label style="margin-top:6px;display:block">Farbe</label>
+     <div class="colorrow" id="peC">${PEE_COLORS.map((c,i)=>`<button data-c="${i+1}" style="background:${c}" onclick="peeCol(${i+1})">${i+1}</button>`).join('')}</div>
+     <div class="hint" id="peCH" style="margin-top:0">1–3 ist unauffällig, ab 4 spricht die Farbe für zu wenig Flüssigkeit.</div>
+     <label style="margin-top:10px;display:block">Starker Drang / kaum aufhaltbar?</label>
+     <div class="portrow" id="peU">
+       <button data-u="0" class="sel" onclick="peeUrg(0)">nein</button>
+       <button data-u="1" onclick="peeUrg(1)">ja</button>
+     </div>
+     <label style="margin-top:10px;display:block">Notiz (optional)</label>
+     <input id="peN" placeholder="z. B. Brennen, nach dem Kaffee, Einsatz">`,
+    ()=>{
+      const t=document.getElementById('peT').value||nowHM();
+      d.pee.push({t:t,vol:_peeVol,col:_peeCol,urg:_peeUrg,note:(document.getElementById('peN').value||'').trim()});
+      sortPee(d); save(); renderToday(); toast('Eingetragen ✓');
+    });
+}
+let _peeVol=null,_peeCol=null,_peeUrg=0;
+function peeVol(v){ _peeVol=v; document.querySelectorAll('#peV button').forEach(b=>b.classList.toggle('sel',+b.dataset.v===v)); }
+function peeCol(c){ _peeCol=c; document.querySelectorAll('#peC button').forEach(b=>b.classList.toggle('sel',+b.dataset.c===c));
+  const h=document.getElementById('peCH'); if(h) h.textContent=PEE_COLTXT[c-1]; }
+function peeUrg(u){ _peeUrg=u; document.querySelectorAll('#peU button').forEach(b=>b.classList.toggle('sel',+b.dataset.u===u)); }
+function delPee(i){ const d=day(curDate); d.pee.splice(i,1); save(); renderToday(); }
+function peeStats(d){
+  const list=(d.pee||[]).slice(); const n=list.length;
+  const night=list.filter(e=>peeIsNight(e.t)).length;
+  const mins=list.map(e=>{ const p=String(e.t).split(':'); return (+p[0])*60+(+p[1]||0); }).sort((a,b)=>a-b);
+  let maxGap=0,sumGap=0;
+  for(let i=1;i<mins.length;i++){ const g=mins[i]-mins[i-1]; sumGap+=g; if(g>maxGap) maxGap=g; }
+  const avgGap=mins.length>1?Math.round(sumGap/(mins.length-1)):null;
+  const urg=list.filter(e=>e.urg).length;
+  const mlPer=n&&d.waterMl?Math.round(d.waterMl/n):null;
+  return {n:n,night:night,avgGap:avgGap,maxGap:maxGap,urg:urg,mlPer:mlPer};
+}
+function hm(min){ return Math.floor(min/60)+':'+String(min%60).padStart(2,'0')+' h'; }
+function renderUrin(d){
+  const st=peeStats(d);
+  const g=document.getElementById('peeStats');
+  if(g){
+    g.innerHTML=`<div class="pg ${st.n>settings.peeTarget?'warn':''}"><div class="v">${st.n}</div><div class="l">Gänge</div></div>
+      <div class="pg ${st.night>=2?'warn':''}"><div class="v">${st.night}</div><div class="l">davon nachts</div></div>
+      <div class="pg"><div class="v">${st.avgGap!=null?hm(st.avgGap).replace(' h',''):'–'}</div><div class="l">Ø Abstand</div></div>
+      <div class="pg"><div class="v">${st.mlPer!=null?st.mlPer:'–'}</div><div class="l">ml je Gang</div></div>`;
+  }
+  const l=document.getElementById('peeList');
+  if(l){
+    l.innerHTML=(d.pee||[]).map((e,i)=>{
+      const bits=[];
+      if(e.vol) bits.push(['wenig','normal','viel'][e.vol-1]);
+      if(e.col) bits.push('F'+e.col);
+      if(e.urg) bits.push('Drang');
+      return `<span class="pt ${peeIsNight(e.t)?'night':''}" onclick="delPee(${i})">${esc(e.t)}${bits.length?` <b>${bits.join(' · ')}</b>`:''} ✕</span>`;
+    }).join('')||'<div class="hint" style="margin:2px 0 0">Heute noch nichts erfasst.</div>';
+  }
+  const a=document.getElementById('peeAssess');
+  if(a){
+    const last7=lastNDays(7).map(ds=>days[ds]).filter(x=>x&&(x.pee||[]).length);
+    const avg7=last7.length?(last7.reduce((s,x)=>s+x.pee.length,0)/last7.length):null;
+    const avgN=last7.length?(last7.reduce((s,x)=>s+x.pee.filter(e=>peeIsNight(e.t)).length,0)/last7.length):null;
+    const warn = (avg7!=null&&avg7>settings.peeTarget)||(avgN!=null&&avgN>=2);
+    let txt='';
+    if(!st.n&&!last7.length){
+      txt='Trag ein paar Tage lang jeden Gang ein – ohne Zahlen lässt sich nicht beurteilen, ob „oft" wirklich oft ist.';
+    } else {
+      txt=`<b>Einordnung:</b> Üblich sind etwa 4–8 Toilettengänge am Tag und höchstens ein Gang nachts. Wer viel trinkt, liegt normalerweise auch höher – als grobe Rechnung kommt etwa alle 300–400 ml ein Gang dazu.`;
+      if(avg7!=null) txt+=`<br><br><b>Deine letzten 7 Tage:</b> Ø ${fmtN(avg7)} Gänge, davon Ø ${fmtN(avgN)} nachts.`;
+      if(st.mlPer!=null&&st.mlPer<200) txt+=`<br><br>Auffällig ist heute weniger die Anzahl als die Menge: rechnerisch nur ${st.mlPer} ml je Gang. Häufige kleine Mengen sind etwas anderes als häufige große Mengen – notier das über ein paar Tage mit.`;
+      if(avg7!=null&&avg7>settings.peeTarget&&settings.waterTarget>=3000) txt+=`<br><br>Bei deinem Trinkziel von ${settings.waterTarget} ml sind rund ${Math.round(settings.waterTarget/350)} Gänge rechnerisch normal. Erst deutlich darüber wird es erklärungsbedürftig.`;
+      if(avgN!=null&&avgN>=2) txt+=`<br><br>Regelmäßig zwei oder mehr Gänge pro Nacht (Nykturie) solltest du ärztlich abklären lassen – gerade weil du ohnehin ein Blutbild machen willst.`;
+      txt+=`<br><br><b>Zum Arzt gehört das, wenn:</b> Brennen oder Schmerzen, Blut im Urin, Fieber oder Flankenschmerz, ständiger Durst mit großen Urinmengen, abgeschwächter Strahl, Nachtröpfeln oder das Gefühl, nie ganz leer zu werden – oder wenn sich das Ganze plötzlich verändert hat. Starker Durst plus viel Wasserlassen gehört mit einem Blutzucker- und HbA1c-Wert abgeklärt.`;
+    }
+    a.innerHTML=`<div class="assessbox ${warn?'warn':''}">${txt}</div>`;
+  }
+}
+function lastNDays(n){ const out=[]; let ds=curDate; for(let i=0;i<n;i++){ out.push(ds); ds=prevDayStr(ds); } return out; }
+function peeReport(){
+  const ds=lastNDays(14).reverse();
+  let L=['Miktionsprotokoll (Blasentagebuch)','Zeitraum: '+ds[0]+' bis '+ds[ds.length-1],''];
+  let sum=0,cnt=0,nsum=0;
+  ds.forEach(x=>{
+    const d=days[x]; if(!d||!(d.pee||[]).length) return;
+    const st=peeStats(d);
+    sum+=st.n; cnt++; nsum+=st.night;
+    L.push(new Date(x+'T12:00:00').toLocaleDateString('de-DE',{weekday:'short',day:'2-digit',month:'2-digit'})+
+      `  ${st.n} Gänge (nachts ${st.night}) · Trinkmenge ${d.waterMl||0} ml`+(isDuty(x)?' · 24-h-Dienst':''));
+    L.push('   '+d.pee.map(e=>e.t+(e.vol?' ('+['wenig','normal','viel'][e.vol-1]+')':'')+(e.urg?' Drang':'')+(e.note?' – '+e.note:'')).join(', '));
+  });
+  if(!cnt){ toast('Noch keine Einträge für das Protokoll.'); return; }
+  L.push('');
+  L.push(`Mittelwert: ${(sum/cnt).toFixed(1).replace('.',',')} Gänge/Tag, davon ${(nsum/cnt).toFixed(1).replace('.',',')} nachts.`);
+  const txt=L.join('\n');
+  openModal('Protokoll für den Arzt',
+    `<textarea id="peeRep" style="min-height:220px;font-size:12px">${esc(txt)}</textarea>
+     <div class="row" style="margin-top:8px">
+       <button class="btn ghost small" onclick="copyPeeReport()">📋 Kopieren</button>
+       <button class="btn ghost small" onclick="downloadPeeReport()">⬇︎ Als Datei</button>
+     </div>
+     <div class="hint">Ein Blasentagebuch über 3–7 Tage ist genau das, wonach in der Praxis gefragt wird. Bring am besten auch deine Trinkmenge mit – die steht schon drin.</div>`, ()=>{});
+}
+function copyPeeReport(){
+  const t=document.getElementById('peeRep');
+  t.select(); try{ document.execCommand('copy'); toast('Kopiert ✓'); }catch(e){ toast('Bitte manuell markieren und kopieren.'); }
+}
+function downloadPeeReport(){
+  const t=document.getElementById('peeRep').value;
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([t],{type:'text/plain;charset=utf-8'}));
+  a.download='miktionsprotokoll-'+todayStr()+'.txt'; a.click();
+  toast('Datei erstellt ✓');
 }
 
 /* ================= Dopamin-Detox: Zeitfenster, Serien, Auslöser ================= */
@@ -3131,12 +3794,12 @@ function openDay(ds){ curDate=ds; showView('today'); renderToday(); }
 /* ================= CSV-Export ================= */
 function exportCSV(){
   const csvEsc=s=>'"'+String(s??'').replace(/"/g,'""').replace(/\r?\n/g,' ')+'"';
-  const head=['Datum','Gewicht_kg','Taille_cm','Brust_cm','Arm_cm','Schlaf_h','Schlafqualitaet','Wachphasen','Einschlafen_min','Energie','Kopf_klar','Stimmung','Wasser_ml','Protein_g','Lesen_min','Meditation_min','Workouts','Trainings_min','RPE_max','Trainingslast','Last_7T','Lastverhaeltnis','Ziele_ja','Ziele_gesamt','Detox_ja','Detox_gesamt','Impulse_widerstanden','Trading_Status','Trades_Anzahl','Trading_Regeln_ja','Trading_Regeln_nein','Trading_Tags','Trading_Ergebnis','Trading_Notiz','Mobility_min','Anker_erreicht','Anker_Ziel','Aufgaben_erledigt','Aufgaben_gesamt','Rueckblick','Dankbar'];
+  const head=['Datum','Gewicht_kg','Taille_cm','Brust_cm','Arm_cm','Schlaf_h','Schlafqualitaet','Wachphasen','Einschlafen_min','Energie','Kopf_klar','Stimmung','Wasser_ml','Protein_g','Kalorien','KH_g','Fett_g','Alkohol_g','Toilettengaenge','davon_nachts','Lesen_min','Meditation_min','Workouts','Trainings_min','RPE_max','Trainingslast','Last_7T','Lastverhaeltnis','Ziele_ja','Ziele_gesamt','Detox_ja','Detox_gesamt','Impulse_widerstanden','Trading_Status','Trades_Anzahl','Trading_Regeln_ja','Trading_Regeln_nein','Trading_Tags','Trading_Ergebnis','Trading_Notiz','Mobility_min','Anker_erreicht','Anker_Ziel','Aufgaben_erledigt','Aufgaben_gesamt','Rueckblick','Dankbar'];
   const rows=Object.keys(days).sort().map(ds=>{
     const d=days[ds]; const gv=Object.values(d.goals), dv=Object.values(d.detox);
     const rpes=(d.workouts||[]).filter(w=>w.rpe).map(w=>w.rpe);
     const r=loadRatio(ds);
-    return [ds,d.weight??'',d.waist??'',d.chest??'',d.arm??'',d.sleepH??'',d.sleepQ??'',d.wakeups??'',d.sleepLat??'',d.energy??'',d.focus??'',d.mood??'',d.waterMl||0,d.proteinG||0,d.readMin||0,d.medMin||0,d.workouts.length,d.workouts.reduce((a,w)=>a+w.min,0),rpes.length?Math.max(...rpes):'',dayLoad(d),loadSum(ds,7),r!=null?r.toFixed(2).replace('.',','):'',gv.filter(v=>v===true).length,gv.length,dv.filter(v=>v===true).length,dv.length,d.urges||0,
+    return [ds,d.weight??'',d.waist??'',d.chest??'',d.arm??'',d.sleepH??'',d.sleepQ??'',d.wakeups??'',d.sleepLat??'',d.energy??'',d.focus??'',d.mood??'',d.waterMl||0,d.proteinG||0,d.kcal||0,d.carbG||0,d.fatG||0,d.alkG||0,(d.pee||[]).length,(d.pee||[]).filter(e=>peeIsNight(e.t)).length,d.readMin||0,d.medMin||0,d.workouts.length,d.workouts.reduce((a,w)=>a+w.min,0),rpes.length?Math.max(...rpes):'',dayLoad(d),loadSum(ds,7),r!=null?r.toFixed(2).replace('.',','):'',gv.filter(v=>v===true).length,gv.length,dv.filter(v=>v===true).length,dv.length,d.urges||0,
       (d.trade&&d.trade.state)||'',d.trade&&d.trade.n!=null?d.trade.n:'',
       d.trade?Object.values(d.trade.rules||{}).filter(v=>v===true).length:'',
       d.trade?Object.values(d.trade.rules||{}).filter(v=>v===false).length:'',
@@ -3461,7 +4124,7 @@ async function runWeekReview(btnId,outId){
     const gl=settings.goals.map(g=>g.name+': '+(d.goals[g.id]===true?'ja':d.goals[g.id]===false?'NEIN':'offen')).join(', ');
     const dx=settings.detox.map(r=>r.name+': '+(d.detox[r.id]===true?'ja':d.detox[r.id]===false?'NEIN':'offen')).join(', ');
     summary.push(
-`${ds}: Gewicht ${d.weight??'–'} kg | Schlaf ${d.sleepH??'–'} h (Qualität ${d.sleepQ??'–'}/5, ${d.wakeups??'–'} Wachphasen, Einschlafen ${d.sleepLat!=null?latLabel(d.sleepLat):'–'}) | Energie ${d.energy??'–'}/5 | Kopf klar ${d.focus??'–'}/5 | Stimmung ${d.mood??'–'}/5 | Wasser ${d.waterMl??0} ml (Ziel ${settings.waterTarget}) | Protein ${d.proteinG??0} g (Ziel ${settings.proteinTarget}) | Lesen ${d.readMin} Min (Ziel ${settings.readTarget}) | Meditation ${d.medMin} Min | Mobility ${d.mobMin||0} Min | Impulse ausgesessen ${d.urges||0}
+`${ds}: Gewicht ${d.weight??'–'} kg | Schlaf ${d.sleepH??'–'} h (Qualität ${d.sleepQ??'–'}/5, ${d.wakeups??'–'} Wachphasen, Einschlafen ${d.sleepLat!=null?latLabel(d.sleepLat):'–'}) | Energie ${d.energy??'–'}/5 | Kopf klar ${d.focus??'–'}/5 | Stimmung ${d.mood??'–'}/5 | Wasser ${d.waterMl??0} ml (Ziel ${settings.waterTarget}) | Protein ${d.proteinG??0} g (Ziel ${settings.proteinTarget}) | Kalorien ${d.kcal??0} | KH ${d.carbG??0} g | Fett ${d.fatG??0} g | Alkohol ${d.alkG??0} g | Toilettengänge ${(d.pee||[]).length} (nachts ${(d.pee||[]).filter(e=>peeIsNight(e.t)).length}) | Lesen ${d.readMin} Min (Ziel ${settings.readTarget}) | Meditation ${d.medMin} Min | Mobility ${d.mobMin||0} Min | Impulse ausgesessen ${d.urges||0}
   Ziele: ${gl||'–'}
   Detox: ${dx||'–'}
   Trading: ${tradeContext(d)}
@@ -4046,8 +4709,7 @@ function renderSettings(){
   g.innerHTML=settings.goals.map((x,i)=>`<div class="sitem"><span>${esc(x.name)}</span><button class="btn ghost small" onclick="delGoal(${i})">✕</button></div>`).join('')||'<div class="hint">Keine Ziele.</div>';
   const d=document.getElementById('setDetox');
   d.innerHTML=settings.detox.map((x,i)=>`<div class="sitem"><span onclick="editDetox('${x.id}')" style="flex:1;cursor:pointer">${esc(x.name)}<span class="tag">${dtxWindow(x)}</span>${x.alt?`<span style="display:block;font-size:11.5px;color:var(--sage)">↳ ${esc(x.alt)}</span>`:''}</span><button class="btn ghost small" onclick="delDetox(${i})">✕</button></div>`).join('')||'<div class="hint">Keine Regeln.</div>';
-  const fo=document.getElementById('setFoods');
-  if(fo) fo.innerHTML=settings.foods.map((x,i)=>`<div class="sitem"><span onclick="editFoodPreset('${x.id}')" style="flex:1;cursor:pointer">${esc(x.name)}<span class="tag">${x.p?x.p+' g':''}${x.p&&x.ml?' · ':''}${x.ml?x.ml+' ml':''}</span></span><button class="btn ghost small" onclick="delFoodPreset(${i})">✕</button></div>`).join('')||'<div class="hint">Keine Portionen angelegt.</div>';
+  renderFdbSettings();
   renderChallengeSettings();
   renderShiftSettings();
   renderRecurringSettings();
@@ -4062,6 +4724,9 @@ function renderSettings(){
   document.getElementById('setWeightGoal').value=settings.weightGoal??'';
   document.getElementById('setWaterTarget').value=settings.waterTarget;
   document.getElementById('setProteinTarget').value=settings.proteinTarget;
+  const _f=(id,v)=>{ const e=document.getElementById(id); if(e) e.value=v; };
+  _f('setKcalTarget',settings.kcalTarget); _f('setCarbTarget',settings.carbTarget);
+  _f('setFatTarget',settings.fatTarget); _f('setPeeTarget',settings.peeTarget);
   const qt=document.getElementById('setQualityTarget'); if(qt) qt.value=settings.qualityTarget;
   const mt=document.getElementById('setMobTarget'); if(mt) mt.value=settings.mobTarget;
   document.getElementById('setApiKey').value=settings.apiKey;
@@ -4216,26 +4881,78 @@ function editDetox(id){
       save(); renderSettings(); renderToday(); toast('Regel aktualisiert ✓');
     });
 }
-function addFoodPreset(){
-  const n=document.getElementById('newFoodName').value.trim();
-  const pv=parseInt(document.getElementById('newFoodP').value)||0;
-  const ml=parseInt(document.getElementById('newFoodMl').value)||0;
-  if(!n||(!pv&&!ml)){ toast('Name und mindestens Protein oder Milliliter angeben.'); return; }
-  settings.foods.push({id:'f'+Date.now(),name:n,p:pv,ml:ml});
-  document.getElementById('newFoodName').value=''; document.getElementById('newFoodP').value=''; document.getElementById('newFoodMl').value='';
-  save(); renderSettings(); renderToday(); toast('Portion angelegt ✓');
+function renderFdbSettings(){
+  const el=document.getElementById('setFoods'); if(!el) return;
+  const q=normStr((document.getElementById('fdbFilter')||{value:''}).value.trim());
+  const info=document.getElementById('fdbInfo');
+  if(info) info.textContent=(settings.fdb||[]).length+' Lebensmittel · '+(settings.fdb||[]).filter(f=>f.fav).length+' Favoriten';
+  let list=(settings.fdb||[]).slice();
+  if(q) list=list.filter(f=>normStr(f.n).includes(q)||normStr(f.c).includes(q));
+  list.sort((a,b)=>(b.fav?1:0)-(a.fav?1:0)||a.c.localeCompare(b.c)||a.n.localeCompare(b.n));
+  let lastC=null;
+  el.innerHTML=list.map(f=>{
+    let head='';
+    if(!f.fav && f.c!==lastC){ head=`<div class="fcat" style="border-radius:8px;margin:6px 0 2px">${esc(f.c)}</div>`; lastC=f.c; }
+    const v=foodCalc(f,f.po[0][1]);
+    const row=`<div class="sitem">
+      <button class="btn ghost small" style="padding:5px 8px" onclick="toggleFav('${f.i}')">${f.fav?'⭐':'☆'}</button>
+      <span onclick="editFood('${f.i}')" style="flex:1;cursor:pointer">${esc(f.n)}
+        <span class="tag">${esc(f.po[0][0])} · ${Math.round(v.kcal)} kcal · ${fmtN(v.p)} g P</span></span>
+      <button class="btn ghost small" onclick="delFood('${f.i}')">✕</button></div>`;
+    return head+row;
+  }).join('')||'<div class="hint">Nichts gefunden.</div>';
 }
-function delFoodPreset(i){ settings.foods.splice(i,1); save(); renderSettings(); renderToday(); }
-function editFoodPreset(id){
-  const f=settings.foods.find(x=>x.id===id); if(!f) return;
-  openModal('Portion bearbeiten',
-    `<label>Name</label><input id="edfName" value="${esc(f.name)}">
-     <label>Protein (g)</label><input type="number" inputmode="numeric" id="edfP" value="${f.p||0}">
-     <label>Wasser (ml)</label><input type="number" inputmode="numeric" id="edfMl" value="${f.ml||0}">`,
+function toggleFav(id){ const f=fdbGet(id); if(!f) return; f.fav=f.fav?0:1; save(); renderFdbSettings(); renderToday(); }
+function delFood(id){
+  const f=fdbGet(id); if(!f) return;
+  if(!confirm('„'+f.n+'" aus der Datenbank löschen? Bereits eingetragene Mahlzeiten bleiben erhalten.')) return;
+  settings.fdb=settings.fdb.filter(x=>x.i!==id); save(); renderFdbSettings(); renderToday();
+}
+function restoreFdb(){
+  const have=new Set(settings.fdb.map(x=>x.i)); let c=0;
+  FOOD_DB.forEach(f=>{ if(!have.has(f.i)){ settings.fdb.push(JSON.parse(JSON.stringify(f))); c++; } });
+  save(); renderFdbSettings(); renderToday();
+  toast(c?c+' Standard-Lebensmittel ergänzt ✓':'Die Standarddatenbank ist vollständig.');
+}
+function editFood(id){
+  const f=fdbGet(id); if(!f) return;
+  _nfBase=f.b;
+  openModal(f.n,
+    `<label>Name</label><input id="efN" value="${esc(f.n)}">
+     <label style="margin-top:8px;display:block">Werte je</label>
+     <div class="portrow" id="nfBase">
+       <button data-b="g" class="${f.b==='g'?'sel':''}" onclick="nfBase('g')">100 g</button>
+       <button data-b="ml" class="${f.b==='ml'?'sel':''}" onclick="nfBase('ml')">100 ml</button>
+       <button data-b="stk" class="${f.b==='stk'?'sel':''}" onclick="nfBase('stk')">1 Stück</button>
+     </div>
+     <div class="row" style="margin-top:8px">
+       <input type="number" id="efK" value="${f.k||0}" placeholder="kcal" class="shrink">
+       <input type="number" step="any" id="efP" value="${f.p||0}" placeholder="Protein" class="shrink">
+     </div>
+     <div class="row" style="margin-top:8px">
+       <input type="number" step="any" id="efC" value="${f.ch||0}" placeholder="KH" class="shrink">
+       <input type="number" step="any" id="efF" value="${f.f||0}" placeholder="Fett" class="shrink">
+     </div>
+     <label style="margin-top:8px;display:block">Zählt als Wasser (ml)</label>
+     <input type="number" id="efW" value="${f.w||0}">
+     <label style="margin-top:8px;display:block">Portionen (je Zeile: Name = Menge)</label>
+     <textarea id="efPo" style="min-height:90px">${esc(f.po.map(p=>p[0]+' = '+p[1]).join('\n'))}</textarea>
+     <div class="hint">Die erste Portion ist die Standardmenge beim Antippen des Chips.</div>`,
     ()=>{
-      const n=document.getElementById('edfName').value.trim(); if(!n){ toast('Name fehlt.'); return false; }
-      f.name=n; f.p=parseInt(document.getElementById('edfP').value)||0; f.ml=parseInt(document.getElementById('edfMl').value)||0;
-      save(); renderSettings(); renderToday(); toast('Portion aktualisiert ✓');
+      const nm=document.getElementById('efN').value.trim(); if(!nm){ toast('Name fehlt.'); return false; }
+      const po=document.getElementById('efPo').value.split('\n').map(l=>{
+        const m=l.split('='); if(m.length<2) return null;
+        const a=parseFloat(m[1].replace(',','.')); if(!a) return null;
+        return [m[0].trim(),a];
+      }).filter(Boolean);
+      f.n=nm; f.b=_nfBase;
+      f.k=parseInt(document.getElementById('efK').value)||0;
+      f.p=parseFloat((document.getElementById('efP').value||'').replace(',','.'))||0;
+      f.ch=parseFloat((document.getElementById('efC').value||'').replace(',','.'))||0;
+      f.f=parseFloat((document.getElementById('efF').value||'').replace(',','.'))||0;
+      f.w=parseInt(document.getElementById('efW').value)||0;
+      f.po=po.length?po:[[f.b==='stk'?'1 Stück':'100 '+f.b,f.b==='stk'?1:100]];
+      save(); renderFdbSettings(); renderToday(); toast('Gespeichert ✓');
     });
 }
 function delDetox(i){ if(confirm('Regel löschen?')){ settings.detox.splice(i,1); save(); renderSettings(); } }
@@ -4246,6 +4963,9 @@ function saveDefaults(){
   const wg=parseFloat(document.getElementById('setWeightGoal').value); settings.weightGoal=isNaN(wg)?null:wg;
   settings.waterTarget=parseInt(document.getElementById('setWaterTarget').value)||3000;
   settings.proteinTarget=parseInt(document.getElementById('setProteinTarget').value)||170;
+  const _g=(id,def)=>{ const e=document.getElementById(id); return e?(parseInt(e.value)||def):def; };
+  settings.kcalTarget=_g('setKcalTarget',2800); settings.carbTarget=_g('setCarbTarget',300);
+  settings.fatTarget=_g('setFatTarget',80); settings.peeTarget=Math.max(1,_g('setPeeTarget',8));
   const _qt=document.getElementById('setQualityTarget'); if(_qt) settings.qualityTarget=Math.max(1,parseInt(_qt.value)||3);
   const _mt=document.getElementById('setMobTarget'); if(_mt) settings.mobTarget=Math.max(1,parseInt(_mt.value)||8);
   settings.apiKey=document.getElementById('setApiKey').value.trim();
